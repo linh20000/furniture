@@ -1,0 +1,156 @@
+:root {
+    --color_bg: #FFF;
+    --color_bg_item: #f0f1f2
+        /* F7FAFF */
+    ;
+    --color_main: #ff5d22;
+    --color_main2: #333333;
+    --color_index_review: #62aefb;
+    --color1: #333;
+    --color2: #FFF;
+    --border_radius: 0;
+}
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+body,
+html {
+    font-family: 'Nunito', sans-serif !important;
+    background-color: var(--color_bg) !important;
+}
+
+.lazyload {
+    opacity: 0;
+    visibility: hidden
+}
+
+.lazyload.loaded {
+    opacity: 1;
+    visibility: visible
+}
+
+.shop-filter .shop-filter-item.color.xanh label {
+    background: #24ff00;
+}
+
+.shop-filter .shop-filter-item.color.do label {
+    background: #ff0000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.tim label {
+    background: #fc00ff;
+}
+
+.shop-filter .shop-filter-item.color.vang label {
+    background: #f1ff00;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+.shop-filter .shop-filter-item.color.den label {
+    background: #000000;
+}
+
+@media(max-width: 991px) {
+    footer.footer {
+        padding-bottom: 50px;
+    }
+}
+.main-collection-breadcrumb *,
+.main-collection-breadcrumb *:after,
+.main-collection-breadcrumb *:before {
+    color: #333333 !important;
+}
+.main-blog-breadcrumb {
+    background-image: url(../../theme.hstatic.net/200000584705/1000969925/14/main_blog_breadcrumb_bg8eb1.png)
+}
+
+.main-blog-breadcrumb * {
+    color: #333333;
+}
+.main-article-breadcrumb {
+    background-image: url(../../../theme.hstatic.net/200000584705/1000969925/14/main_article_breadcrumb_bg8eb1.png)
+}
+
+.main-article-breadcrumb * {
+    color: #333333;
+}
+.main-product-breadcrumb {
+    background-image: url(../../theme.hstatic.net/200000584705/1000969925/14/main_product_breadcrumb_bg8eb1.png)
+}
+
+.main-product-breadcrumb * {
+    
+    color: #333333;
+}
+.main-cart-breadcrumb {
+    background-image: url(../theme.hstatic.net/200000584705/1000969925/14/main_cart_breadcrumb_bg8eb1.png)
+}
+.main-cart-breadcrumb * {
+    color: #ff5d22;
+}
