@@ -96,6 +96,26 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group mt-1 mb-1">
+                                                <label for="size" class="form-label mb-1">Kích cỡ</label>
+                                                <select class="form-control custom-select" name="size" id="size" placeholder="">
+                                                    <option value="30x40">30 x 40 cm</option>
+                                                    <option value="40x30">40 x 30 cm</option>
+                                                    <option value="100x30">100 x 30 cm</option>
+                                                    <option value="50x30">50 x 30 cm</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                             <div class="form-group mt-1 mb-1">
+                                                <label for="inputName" class="form-label mb-1">Nhãn hàng</label>
+                                                <input type="text" id="trademark" name="trademark" value="" class="form-control" placeholder="Nhập mã sản phẩm">
+                                                @error('trademark')
+                                                <span class="text-danger mt-1 d-block">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group mt-1 mb-1">

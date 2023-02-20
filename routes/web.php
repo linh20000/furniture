@@ -160,4 +160,10 @@ Route::post('them/{id}',  [App\Http\Controllers\Frontend\HomeController::class, 
 Route::get('xoa-san-pam/{rowId}',  [App\Http\Controllers\Frontend\HomeController::class, 'deleteCart'])->name('deleteCart');
 Route::post('thanh-toan',  [App\Http\Controllers\Frontend\HomeController::class, 'paymentAjax'])->name('payment.ajax');
 Route::get('tin-tuc',  [App\Http\Controllers\Frontend\HomeController::class, 'blogNew'])->name('blogNew');
-Route::get('tin-tuc/sd',  [App\Http\Controllers\Frontend\HomeController::class, 'blogDetail'])->name('blogDetail');
+Route::get('tin-tuc/{id}-{slug}',  [App\Http\Controllers\Frontend\HomeController::class, 'blogDetail'])->name('blogDetail');
+Route::get('tat-ca-san-pham',  [App\Http\Controllers\Frontend\HomeController::class, 'showcollection'])->name('showcollection');
+Route::get('huong-dan-su-dung',  [App\Http\Controllers\Frontend\HomeController::class, 'blogManual'])->name('blogManual');
+Route::get('tat-ca-san-pham',[App\Http\Controllers\Frontend\HomeController::class, 'collectionAll'])->name('collectionAll');
+
+Route::get('danh-sach-san-pham/{id}-{slug}',[App\Http\Controllers\Frontend\HomeController::class, 'collection'])->name('collection');
+

@@ -33,7 +33,8 @@ class AppServiceProvider extends ServiceProvider
                 'interior'=>  Interior::where('parent_id', '=', 0)->where('status', '=', 1)->with('childs')->get(),
                 'banner_slide'=>  Banner::where('type', '=', 'slide')->get(),
                 'banner_four'=>  Banner::where('type', '=', 'four')->get(),
-                'banner_six'=>  Banner::where('type', '=', 'six')->get(),
+                'banner_six_left'=>  Banner::orderBy('created_at', 'ASC')->where('type', '=', 'six')->take(3)->get(),
+                'banner_six_right'=>  Banner::orderBy('created_at', 'DESC')->where('type', '=', 'six')->take(3)->get(),
                 'user'=>  User::first(),
             ]);
         });

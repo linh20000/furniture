@@ -14,6 +14,7 @@ class HomeController extends Controller
     public function home()
     {
         $product_hot = Product::orderBy('created_at','DESC')->where('status', '=', 1)->where('tags','=', 'hot')->get();
+        $product_sale = Product::orderBy('created_at','DESC')->where('status', '=', 1)->where('tags','=', 'sale')->get();
         $product_tables = Product::orderBy('created_at','DESC')->where('status', '=', 1)->where('product_line','=', 'tables')->get();
         $product_chairs = Product::orderBy('created_at','DESC')->where('status', '=', 1)->where('product_line','=', 'chairs')->get();
         $product_cabinet = Product::orderBy('created_at','DESC')->where('status', '=', 1)->where('product_line','=', 'cabinet')->get();
@@ -21,7 +22,7 @@ class HomeController extends Controller
         $product_lamp = Product::orderBy('created_at','DESC')->where('status', '=', 1)->where('product_line','=', 'lamp')->get();
         $blog_ichi = Blog::orderBy('created_at', 'DESC')->where('type_blog', '=', 'blog_new')->where('status', '=', 1)->first();
         $blog = Blog::orderBy('created_at', 'DESC')->where('type_blog', '=', 'blog_new')->where('status', '=', 1)->get();
-        return view('frontend.home.index',compact('product_hot','product_tables','product_chairs', 'product_cabinet', 'product_shelf','product_lamp','blog_ichi','blog'));
+        return view('frontend.home.index',compact('product_hot','product_tables','product_chairs', 'product_cabinet', 'product_shelf','product_lamp','blog_ichi','blog','product_sale'));
     }
 
     public function showDetails($id, $slug) {
@@ -106,10 +107,31 @@ class HomeController extends Controller
 
     public function blogNew() {
         $blog = Blog::where('type_blog', '=', 'blog_new')->where('status', '=', '1')->paginate(6);
-        return view('frontend.blog.index',compact('blog'));
+        $relation = Blog::where('type_blog','=','blog_new')->where('status', '=', '1')->take(3)->get();
+        return view('frontend.blog.index',compact('blog', 'relation'));
     }
 
-    public function blogDetail() {
-        return view('frontend.blog.detail_blog');
+    public function blogDetail($id, $slug) {
+        $blog_detail = Blog::find($id);
+        return view('frontend.blog.detail_blog',compact('blog_detail'));
+    }
+     public function showCollection() {
+        return view('frontend.collection.index');
+    }
+
+    public function blogManual() {
+        $blog = Blog::where('type_blog','=', 'user_manual')->where('status', '=', '1')->paginate(6);
+        $relation = Blog::where('type_blog','=', 'user_manual')->where('status', '=', '1')->take(3)->get();
+        return view('frontend.blog.index', compact('blog', 'relation'));
+    }
+
+    public function collection($id, $slug) {
+
+        $product = Product::orderBy('created_at', 'DESC')->where('category_id', '=', $id )->where('status', '=', 1)->get();
+        return view('frontend.collection.index', compact('product'));
+    }
+    public function collectionAll() {
+        $product = Product::paginate(12);
+        return view('frontend.collection.index', compact('product'));
     }
 }

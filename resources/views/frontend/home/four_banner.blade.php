@@ -3,7 +3,7 @@
         <div class="home-four-banner-main">
             @foreach ($banner_four as $item)
                 <div class="home-four-banner-main-item has-spin">
-                    <a href="" aria-label="">
+                    <a href="{{route('collectionAll')}}" aria-label="">
                         <picture>
                             <source media="(max-width: 360px)" 
                                             srcset="{{$item->thumbnail}}"

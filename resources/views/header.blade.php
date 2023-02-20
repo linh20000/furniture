@@ -75,15 +75,15 @@
                         <ul>
                             @foreach ($categories as $item)
                                 <li class="hasChild">
-                                    <a  href="collections/den-de-ban.html" title="{{$item->name}}">{{$item->name}}<span>›</span></a>
+                                    <a   title="{{$item->name}}">{{$item->name}}<span>›</span></a>
                                     <ul class="menu1"> 
                                         @foreach ($item->childs as $item_childs)
                                             <li class="hasChild">
-                                                <a href="collections/tu-quan-ao.html" title="{{$item_childs->name}}">{{$item_childs->name}}<span>›</span></a>
+                                                <a  title="{{$item_childs->name}}">{{$item_childs->name}}<span>›</span></a>
                                                 <ul class="menu2">
                                                     @foreach ($item_childs->child as $item_3)
                                                         <li class="">
-                                                            <a href="collections/den-de-ban.html" title="{{$item_3->name}}">{{$item_3->name}}</a>
+                                                            <a href="{{route('collection' , [$item_3->id, Str::slug($item_3->name)])}}" title="{{$item_3->name}}">{{$item_3->name}}</a>
                                                         </li>
                                                     @endforeach
                                                 </ul>
@@ -98,7 +98,7 @@
                 <div class="header-menu-center">
                     <ul>
                         <li class="hasChild">
-                            <a  href="collections/all.html" title="Tất cả sản phẩm">Tất cả sản phẩm<span>›</span></a>
+                            <a  title="Tất cả sản phẩm">Tất cả sản phẩm<span>›</span></a>
                             <ul class="menu1"> 
                                 @foreach ($interior as $item)
                                     <li class="hasChild">
@@ -140,13 +140,13 @@
                             </ul>
                         </li>
                         <li class="">
-                            <a  href="blogs/news.html" title="Blogs">Blogs</a>
+                            <a  href="{{route('blogNew')}}" title="Blogs">Blogs</a>
                         </li>
                         <li class="">
-                            <a  href="blogs/huong-dan-su-dung.html" title="Hướng dẫn sử dụng">Hướng dẫn sử dụng</a>
+                            <a  href="{{route('blogManual')}}" title="Hướng dẫn sử dụng">Hướng dẫn sử dụng</a>
                         </li>
                         <li class="">
-                            <a  href="pages/lien-he.html" title="Liên hệ">Liên hệ</a>
+                            <a  href="" title="Liên hệ">Liên hệ</a>
                         </li>
                     </ul>
                 </div>

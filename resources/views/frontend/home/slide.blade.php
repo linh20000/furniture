@@ -3,7 +3,7 @@
         <!-- Dom append in index.js for Lighthouse -->
         @foreach ($banner_slide as $item)
             <div class="home-slider-main-item">
-                <a href="" aria-label="Banner slider 1">
+                <a href="{{route('collectionAll')}}" aria-label="Banner slider 1">
                     <picture>
                         <source media="(max-width: 480px)" 
                                         srcset="{{$item->thumbnail}}"

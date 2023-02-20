@@ -2,7 +2,7 @@
     <div class="product-item-wrap">
         <div class="product-item-image hasThumbs">
             <span class="product-item-discount">-{{number_format(($item->old_price - $item->sale_price) / $item->old_price * 100)}}%</span>			
-            <a class="product-item-link" href="{{route('detail_product', [$item->id, STR::slug($item->name)])}}" aria-label="Bàn ăn 4 chân cao cấp">			
+            <a class="product-item-link" href="{{route('detail_product', [$item->id, Str::slug($item->name)])}}" aria-label="Bàn ăn 4 chân cao cấp">			
                 <img class="lazyload w-100" width="480" height="480"
                         src="{{$item->thumbnail}}"
                         data-src="{{$item->thumbnail}}"

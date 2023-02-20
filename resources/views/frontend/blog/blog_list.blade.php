@@ -1,7 +1,7 @@
 <article class="article-item " data-index="8">
     <div class="article-item-wrap">
         <div class="article-item-image">
-            <a href="" title="{{$item->name}}" rel="nofollow">
+            <a href="{{route('blogDetail', [$item->id, Str::slug($item->name)])}}" title="{{$item->name}}" rel="nofollow">
                 <img src="{{$item->iamge}}"
                         class="lazyload"
                         data-src="{{$item->image}}" 
@@ -10,7 +10,7 @@
             </a>
         </div>
         <div class="article-item-detail">
-            <h3 class="article-item-detail-name"><a href="" title="{{$item->name}}">{{$item->name}}</a></h3>
+            <h3 class="article-item-detail-name"><a href="{{route('blogDetail', [$item->id, Str::slug($item->name)])}}" title="{{$item->name}}">{{$item->name}}</a></h3>
             <strong class="article-item-detail-info">{{$item->created_at->format('d')}} Thg {{$item->created_at->format('m Y')}} / {{$item->subname}}</strong>
             <div style="    overflow: hidden;
                 display: -webkit-box;

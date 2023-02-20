@@ -22,10 +22,16 @@
 	<div class="container">
 		<div class="main-blog-wrap">
 			<div class="main-blog-left">
-				<div class="main-blog-left-data">
-					@foreach ($blog as $item)
-						@include('frontend.blog.blog_list')
-					@endforeach
+				<div class="main-blog-left-data justify-content-center">
+					@if ($blog->isEmpty())
+						<h1 class="text-center">
+							Chưa có bài viết nào
+						</h1>
+					@else
+						@foreach ($blog as $item)
+							@include('frontend.blog.blog_list')
+						@endforeach
+					@endif
 				</div>
 				@if ($blog->hasPages())
 				<div class="shop-pagination">
@@ -57,36 +63,42 @@
 					<div class="section-title-all">
 						<span>Đừng bỏ lỡ.</span>
 					</div>
-					<article class="article-item layout-small" data-index="3">
-						<div class="article-item-wrap">
-							<div class="article-item-image">
-								<a href="news/tai-sao-mau-nau-luon-duoc-ua-chuong-trong-thiet-ke-noi-that.html" title="Tại sao màu nâu luôn được ưa chuộng trong thiết kế nội thất?" rel="nofollow">
-									
-									<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-											class="lazyload"
-											data-src="../../file.hstatic.net/200000584705/article/blog7_1_642c28eca458452db72ebc36_aa47987c65b842b0839047171f834f06_medium.jpg" 
-											alt="Tại sao màu nâu luôn được ưa chuộng trong thiết kế nội thất?"> 
-									
-									<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 48 48" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""> <path d="m40.8994141 39.4853516-7.8127441-7.8127441c2.3978882-2.734375 3.7209473-6.1942749 3.7209473-9.8649902 0-4.0068359-1.5605469-7.7734375-4.3935547-10.6064453s-6.5996094-4.3935547-10.6064453-4.3935547-7.7734375 1.5605469-10.6064453 4.3935547-4.3935547 6.5996094-4.3935547 10.6064453 1.5605469 7.7734375 4.3935547 10.6064453 6.5996094 4.3935547 10.6064453 4.3935547c3.6707153 0 7.1306152-1.3230591 9.8649902-3.7209473l7.8127441 7.8127441c.1953125.1953125.4511719.2929688.7070313.2929688s.5117188-.0976563.7070313-.2929688c.3906249-.390625.3906249-1.0234375-.0000001-1.4140625zm-28.2841797-8.4853516c-2.4550781-2.4555664-3.8076172-5.7202148-3.8076172-9.1923828s1.3525391-6.7368164 3.8076172-9.1923828c2.4555664-2.4550781 5.7202148-3.8076172 9.1923828-3.8076172s6.7368164 1.3525391 9.1923828 3.8076172c2.4550781 2.4555664 3.8076172 5.7202148 3.8076172 9.1923828s-1.3525391 6.7368164-3.8076172 9.1923828c-2.4555664 2.4550781-5.7202148 3.8076172-9.1923828 3.8076172s-6.7368164-1.3525391-9.1923828-3.8076172z" fill="#ffffff" data-original="#ffffff" style="" class="" ></path></svg>
-								</a>
+					@foreach ($relation as $item)
+						<article class="article-item layout-small" data-index="3">
+							<div class="article-item-wrap">
+								<div class="article-item-image">
+									<a href="{{route('blogDetail', [$item->id, Str::slug($item->name)])}}" title="{{$item->name}}" rel="nofollow">
+										
+										<img src="{{$item->image}}"
+												class="lazyload"
+												data-src="{{$item->image}}" 
+												alt="{{$item->name}}"> 
+										
+										<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 48 48" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""> <path d="m40.8994141 39.4853516-7.8127441-7.8127441c2.3978882-2.734375 3.7209473-6.1942749 3.7209473-9.8649902 0-4.0068359-1.5605469-7.7734375-4.3935547-10.6064453s-6.5996094-4.3935547-10.6064453-4.3935547-7.7734375 1.5605469-10.6064453 4.3935547-4.3935547 6.5996094-4.3935547 10.6064453 1.5605469 7.7734375 4.3935547 10.6064453 6.5996094 4.3935547 10.6064453 4.3935547c3.6707153 0 7.1306152-1.3230591 9.8649902-3.7209473l7.8127441 7.8127441c.1953125.1953125.4511719.2929688.7070313.2929688s.5117188-.0976563.7070313-.2929688c.3906249-.390625.3906249-1.0234375-.0000001-1.4140625zm-28.2841797-8.4853516c-2.4550781-2.4555664-3.8076172-5.7202148-3.8076172-9.1923828s1.3525391-6.7368164 3.8076172-9.1923828c2.4555664-2.4550781 5.7202148-3.8076172 9.1923828-3.8076172s6.7368164 1.3525391 9.1923828 3.8076172c2.4550781 2.4555664 3.8076172 5.7202148 3.8076172 9.1923828s-1.3525391 6.7368164-3.8076172 9.1923828c-2.4555664 2.4550781-5.7202148 3.8076172-9.1923828 3.8076172s-6.7368164-1.3525391-9.1923828-3.8076172z" fill="#ffffff" data-original="#ffffff" style="" class="" ></path></svg>
+									</a>
+								</div>
+								<div class="article-item-detail">
+									<h3 class="article-item-detail-name"><a href="{{route('blogDetail', [$item->id, Str::slug($item->name)])}}" title="Tại sao màu nâu luôn được ưa chuộng trong thiết kế nội thất?">Tại sao màu nâu luôn được ưa chuộng trong thiết kế nội thất?</a></h3>
+									<strong class="article-item-detail-info">{{$item->created_at->format('d')}} Thg {{$item->created_at->format('m Y')}} / {{$item->subname}}</strong>
+									<div style="    overflow: hidden;
+										display: -webkit-box;
+										text-overflow: ellipsis;
+										-webkit-box-orient: vertical;
+										-webkit-line-clamp: 2;">
+										<p class="article-item-detail-des">
+											{!!  $item->description  !!}
+										</p>  
+									</div> 
+								</div>
 							</div>
-							<div class="article-item-detail">
-								<h3 class="article-item-detail-name"><a href="news/tai-sao-mau-nau-luon-duoc-ua-chuong-trong-thiet-ke-noi-that.html" title="Tại sao màu nâu luôn được ưa chuộng trong thiết kế nội thất?">Tại sao màu nâu luôn được ưa chuộng trong thiết kế nội thất?</a></h3>
-								<strong class="article-item-detail-info">30 Thg 9 2022 / Tin tức</strong>
-								<p class="article-item-detail-des">
-									
-									Trong thiết kế nội thất, màu sắc luôn đóng vai trò hết sức quan trọng. Trong đó có màu nâu rất được ưa chuộng. Hãy xem lý do tại sao nhé! Tại sao màu nâu đang ngày càng được ưa chuộng?Màu nâu – giống như một màu nền tảngTrong thập kỷ qua, màu xám, trắng...
-									
-								</p>  
-							</div>
-						</div>
-					</article>
+						</article>
+					@endforeach
 				</div>
 				<div class="main-blog-right-menu">
 					@include('frontend.blog.category_blog')
 				</div>
 				<div class="main-blog-right-banner">
-					<a href="../index.html" title="Bạn cần tư vấn?">
+					<a href="" title="Bạn cần tư vấn?">
 						<div class="section-title-all">
 							<span>Bạn cần tư vấn?</span>
 						</div>

@@ -41,7 +41,7 @@
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                             data-src="//theme.hstatic.net/200000584705/1000969925/14/home_insta_image.png" alt="F1GENZ Furniture 2 - Instagram">
                 </figture>
-                <a href="collections/all.html">Xem ngay <span>›</span></a>
+                <a href="{{route('collectionAll')}}">Xem ngay <span>›</span></a>
             </div>
             <div class="home-insta-body-right">
                 <a href="../theme.hstatic.net/200000584705/1000969925/14/home_insta_item_image_78eb1.png" class="home-insta-body-item" aria-label="Banner" data-fancybox="gallery">
