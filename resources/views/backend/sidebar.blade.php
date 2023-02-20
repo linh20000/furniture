@@ -52,6 +52,28 @@
               </li>
             </ul>
           </li>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Pages">Sản phẩm</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('admin.showProductList')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="License">Quản lý sản phẩm</span></a>
+              </li>
+              <li><a class="d-flex align-items-center" href="{{route('admin.getCreateProduct')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="API Key">Thêm sản phẩm</span></a>
+              </li>
+            </ul>
+          </li>
+           <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Đơn hàng</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('showListOrder')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Danh sách</span></a>
+              </li>
+            </ul>
+          </li>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Pages">Blog</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('blog.list')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="License">Danh sách blog</span></a>
+              </li>
+              <li><a class="d-flex align-items-center" href="{{route('blog.create')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="API Key">Thêm blog</span></a>
+              </li>
+            </ul>
+          </li>
           <!--    -->
           <!--    -->
           <li class=" navigation-header"><span data-i18n="Misc">chỉnh sửa hệ thống </span><i data-feather="more-horizontal"></i>

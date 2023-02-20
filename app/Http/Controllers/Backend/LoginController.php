@@ -17,7 +17,7 @@ class LoginController extends Controller
     }
 
     // dashboard
-    public function showDashboard() {
+    public function showHome() {
         return view('backend.home.index');
     }
     

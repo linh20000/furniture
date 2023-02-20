@@ -60,7 +60,7 @@
                                         <span class="text-danger mt-1 d-block">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="status">Trạng thái</label>
                                         <select class="form-control custom-select" name="type" id="type">
                                             <option value="slide">Banner slide</option>
@@ -174,7 +174,6 @@
     }
    
 </script>
-<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('ckfinder/ckfinder.js')}}" ></script>
 -@endsection

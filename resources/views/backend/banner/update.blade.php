@@ -59,13 +59,14 @@
                                         <span class="text-danger mt-1 d-block">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                     {{-- <div class="form-group">
+                                    <div class="form-group">
                                         <label for="status">Trạng thái</label>
-                                        <select class="form-control custom-select" name="status" id="status">
-                                            <option value="1">Còn hàng</option>
-                                            <option value="0">Hết hàng</option>
+                                        <select class="form-control custom-select" name="type" id="type">
+                                            <option value="slide">Banner slide</option>
+                                            <option value="four">Banner 4 ảnh</option>
+                                            <option value="six">Banner 6 ảnh</option>
                                         </select>
-                                    </div> --}}
+                                    </div>
                                     <div class="mt-3"></div>
                                     <div class="">
                                         <h3 class="card-title">Thông tin tìm kiếm</h3>

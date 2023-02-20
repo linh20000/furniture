@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('mini_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('parent_id');
+            $table->string('category_id');
             $table->string('status');
             $table->string('seo_title');
             $table->string('seo_description');

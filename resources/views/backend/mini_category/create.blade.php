@@ -54,8 +54,8 @@
                                         @enderror
                                     </div>
                                     <div class="form-group mt-1 mb-1">
-                                        <label for="parent_id" class="form-label mb-1">Danh mục</label>
-                                        <select class="form-control custom-select" name="parent_id" id="parent_id" placeholder="">
+                                        <label for="category_id" class="form-label mb-1">Danh mục</label>
+                                        <select class="form-control custom-select" name="category_id" id="category_id" placeholder="">
                                             @foreach($category_parent as $category_parent)
                                             <option value="{{$category_parent->id}}">{{$category_parent->name}}</option>
                                             @endforeach

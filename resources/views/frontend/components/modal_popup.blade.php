@@ -396,7 +396,7 @@
 
 
 
-
+{{-- 
 <div class="shop-cart-sidebar">
     <div class="shop-cart-sidebar-head">
         <label>Giỏ hàng</label>
@@ -436,8 +436,69 @@
             <button type="button" data-type="shop-cart-sidebar-note-save">Lưu</button>
         </div>
     </div>
+</div> --}}
+<div class="shop-cart-sidebar">
+	<div class="shop-cart-sidebar-head">
+		<label>Giỏ hàng</label>
+		<button type="button" data-type="shop-cart-sidebar-close">
+			<svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14" width="15" height="15"><path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path></svg>
+		</button>
+	</div>
+	<div class="shop-cart-sidebar-body">
+        <div class="shop-cart-sidebar-yes">
+            @if (Cart::count() != 0)
+                @foreach (Cart::content() as $item)
+                    <div class="shop-cart-item" data-id="{{$item->rowId}}">
+                        <div class="shop-cart-item-left">
+                            <a href="{{route('detail_product', [$item->id, Str::slug($item->name)])}}" aria-label="{{$item->name}}">
+                                <img src="https://product.hstatic.net/200000584705/product/malmo--haynes-table-2-2m--oak-12_18ed7eae350d480d82e1668434bd338c_22496ecb81a74e6d9d4ec2cadcd941f4.png" alt="{{$item->name}}">
+                            </a>
+                        </div>
+                        <div class="shop-cart-item-right">
+                            <h4><a href="{{route('detail_product', [$item->id, Str::slug($item->name)])}}" aria-label="{{$item->name}}">{{$item->name}}</a></h4>
+                            <span></span>
+                            
+                            <p>{{number_format($item->price * $item->qty)}}₫</p>
+                            
+                            <div class="shop-cart-item-right-action">
+                                
+                                <div class="shop-cart-item-right-action-quantity shop-quantity-wrap">
+                                    <label>Số lượng</label>
+                                    <div class="shop-quantity">
+                                        {{-- <button type="button" data-type="shop-quantity-minus" title="Giảm">-</button> --}}
+                                        <input type="number" name="quantity_1095040158" value="{{$item->qty}}" min="1" readonly="" disabled>
+                                        {{-- <button type="button" data-type="shop-quantity-plus" title="Tăng">+</button> --}}
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="shop-cart-item-right-action-remove"> 
+                                    <a type="button" data-type="shop-cart-item-remove" href="{{route('deleteCart' ,$item->rowId)}}" data-id="{{$item->rowId}}">Xóa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <div class="shop-cart-sidebar-foot">
+                    <button type="button" data-type="shop-cart-sidebar-note-action" title="Thêm ghi chú"></button>
+                    <a href="{{route('showCart')}}" aria-label="Xem chi tiết giỏ hàng">Xem chi tiết giỏ hàng</a>
+                    
+                    <a href="{{route('showPayment')}}" aria-label="Thanh toán">  
+                        <span>Thanh toán</span>
+                        <span></span>
+                        <span>{{Cart::subtotal()}}₫</span>
+                    </a>
+                </div>
+            @else
+                <div class="shop-cart-sidebar-no">Giỏ hàng của bạn còn trống</div>
+            @endif
+        </div>
+        <div class="shop-cart-sidebar-foot">
+            <button type="button" data-type="shop-cart-sidebar-note-action" title="Thêm ghi chú"></button>
+            <a href="{{route('showCart')}}" aria-label="Xem chi tiết giỏ hàng">Xem chi tiết giỏ hàng</a>
+            </div>
+    </div>
 </div>
-
 
 <div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-labelledby="accountModal" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

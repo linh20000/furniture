@@ -17,7 +17,7 @@ class MiniCategoryController extends Controller
     
     // Thêm danh mục
     public function createCategory() {
-        $category_parent = Category::where('parent_id' , '=', 0)->get();
+        $category_parent = Category::where('parent_id' , '!=', 0)->get();
         // dd($category_parent);    
         return view('backend.mini_category.create',['breadcrumb'=>'Thêm danh mục'],compact('category_parent'));
     } 
@@ -46,7 +46,7 @@ class MiniCategoryController extends Controller
     // Chỉnh sửa danh mục
     public function getUpdateCategory($id) {
         $category = MiniCategory::find($id);
-        $category_parent = MiniCategory::where('parent_id' , '!=', 0)->get();
+        $category_parent = MiniCategory::where('category_id' , '!=', 0)->get();
         return view('backend.mini_category.update',['breadcrumb'=>'Chỉnh sửa danh mục'], compact('category','category_parent'));
     } 
 

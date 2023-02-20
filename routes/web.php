@@ -46,19 +46,19 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::prefix('mini-category')->group(function() {
         
         // hiển thị danh sách danh mục
-        Route::get('/', [App\Http\Controllers\Backend\MiniCategoryController::class, 'showMiniCategory'])->name('admin.Minicategory');
+        Route::get('/', [App\Http\Controllers\Backend\MiniCategoryController::class, 'showCategory'])->name('admin.minicategory');
         // thêm danh mục
-        Route::get('create', [App\Http\Controllers\Backend\MiniCategoryController::class, 'createMiniCategory'])->name('admin.createMiniCategory');
-        Route::post('create', [App\Http\Controllers\Backend\MiniCategoryController::class, 'postMiniCategory'])->name('admin.postMiniCategory');
+        Route::get('create', [App\Http\Controllers\Backend\MiniCategoryController::class, 'createCategory'])->name('admin.minicreateCategory');
+        Route::post('create', [App\Http\Controllers\Backend\MiniCategoryController::class, 'postCategory'])->name('admin.minipostCategory');
         // chỉnh sửa danh mục
-        Route::get('update-{id}', [App\Http\Controllers\Backend\MiniCategoryController::class, 'getUpdateMiniCategory'])->name('admin.getUpdateMiniCategory');
-        Route::post('update-{id}', [App\Http\Controllers\Backend\MiniCategoryController::class, 'updateMinicategory'])->name('admin.updateMiniCategory');
+        Route::get('update-{id}', [App\Http\Controllers\Backend\MiniCategoryController::class, 'getUpdateCategory'])->name('admin.minigetUpdateCategory');
+        Route::post('update-{id}', [App\Http\Controllers\Backend\MiniCategoryController::class, 'updatecategory'])->name('admin.updateMiniCategory');
 
         // xóa danh mục
-        Route::get('delete-{id}', [App\Http\Controllers\Backend\MiniCategoryController::class, 'deleteMiniCategory'])->name('admin.deleteMiniCategory');
+        Route::get('delete-{id}', [App\Http\Controllers\Backend\MiniCategoryController::class, 'deleteCategory'])->name('admin.minideleteCategory');
 
         // tìm kiếm danh mục
-        Route::get('search', [App\Http\Controllers\Backend\MiniCategoryController::class,'search'])->name('admin.Minicategory.search');
+        Route::get('search', [App\Http\Controllers\Backend\MiniCategoryController::class,'search'])->name('admin.minicategory.search');
     });
     Route::prefix('interior')->group(function() {
         
@@ -96,7 +96,68 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('delete-{id}', [App\Http\Controllers\Backend\BannerController::class, 'deleteBanner'])->name('admin.deleteBanner');
 
     });
+
+     // product ???
+    Route::prefix('products')->group(function() {
+        // get product
+        Route::get('list', [App\Http\Controllers\Backend\ProductController::class,'showProductList'])->name('admin.showProductList');
+        Route::get('search', [App\Http\Controllers\Backend\ProductController::class,'search'])->name('admin.product.search');
+        // post product
+        Route::get('create', [App\Http\Controllers\Backend\ProductController::class,'getCreateProduct'])->name('admin.getCreateProduct');
+        Route::post('create', [App\Http\Controllers\Backend\ProductController::class,'addProduct'])->name('admin.addProduct');
+
+        // update Product
+        Route::get('list/update/{id}', [App\Http\Controllers\Backend\ProductController::class,'getUpdateProduct'])->name('admin.getUpdateProduct');
+        Route::post('list/update/{id}', [App\Http\Controllers\Backend\ProductController::class,'updateProduct'])->name('admin.updateProduct');
+
+        // delete product
+        Route::get('list/delete/{id}', [App\Http\Controllers\Backend\ProductController::class,'deleteProduct'])->name('admin.deleteProduct');
+    });
+
+    // 
+     // order route
+    Route::prefix('order')->group(function() {
+        //show list order
+        Route::get('/get', [App\Http\Controllers\Backend\OrderController::class, 'showListOrder'])->name('showListOrder');
+        
+        // show detail order
+        Route::get('/details-{id}', [App\Http\Controllers\Backend\OrderController::class, 'showDetailsOrder'])->name('showDetailsOrder');
+        Route::post('update-{id}', [App\Http\Controllers\Backend\OrderController::class, 'updateStatus'])->name('updateStatus');
+
+        // delete order
+        Route::get('delete-{id}', [App\Http\Controllers\Backend\OrderController::class, 'deleteOrder'])->name('deleteOrder');
+
+    });
+
+     //blog
+    Route::prefix('blog')->group(function() {
+        // hiển thị blog
+        Route::get('list',[App\Http\Controllers\Backend\BlogController::class,'BlogList'])->name('blog.list');
+
+        // thêm blog
+        Route::get('create',[App\Http\Controllers\Backend\BlogController::class,'createBlog'])->name('blog.create');
+        Route::post('create',[App\Http\Controllers\Backend\BlogController::class,'storeBlog']);
+
+        // chỉnh sửa blog
+        Route::get('update/{id}',[App\Http\Controllers\Backend\BlogController::class,'getUpdateBlog'])->name('blog.getUpdate');
+        Route::post('update/{id}',[App\Http\Controllers\Backend\BlogController::class,'updateBlog'])->name('blog.update');
+
+        // xóa blog
+        Route::get('deleteblog/{id}', [App\Http\Controllers\Backend\BlogController::class, 'deleteBlog'])->name('admin.deleteblog');
+    });
+
 });
 
 // trang chủ 
 Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'home'])->name('home');
+
+
+
+Route::get('san-pham/{id}-{slug}',  [App\Http\Controllers\Frontend\HomeController::class, 'showDetails'])->name('detail_product');
+Route::get('gio-hang',  [App\Http\Controllers\Frontend\HomeController::class, 'showCart'])->name('showCart');
+Route::get('thanh-toan',  [App\Http\Controllers\Frontend\HomeController::class, 'showPayment'])->name('showPayment');
+Route::post('them/{id}',  [App\Http\Controllers\Frontend\HomeController::class, 'addCartAjax'])->name('addcart.ajax');
+Route::get('xoa-san-pam/{rowId}',  [App\Http\Controllers\Frontend\HomeController::class, 'deleteCart'])->name('deleteCart');
+Route::post('thanh-toan',  [App\Http\Controllers\Frontend\HomeController::class, 'paymentAjax'])->name('payment.ajax');
+Route::get('tin-tuc',  [App\Http\Controllers\Frontend\HomeController::class, 'blogNew'])->name('blogNew');
+Route::get('tin-tuc/sd',  [App\Http\Controllers\Frontend\HomeController::class, 'blogDetail'])->name('blogDetail');

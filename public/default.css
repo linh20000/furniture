@@ -126,13 +126,6 @@ html {
 .main-collection-breadcrumb *:before {
     color: #333333 !important;
 }
-.main-blog-breadcrumb {
-    background-image: url(../../theme.hstatic.net/200000584705/1000969925/14/main_blog_breadcrumb_bg8eb1.png)
-}
-
-.main-blog-breadcrumb * {
-    color: #333333;
-}
 .main-article-breadcrumb {
     background-image: url(../../../theme.hstatic.net/200000584705/1000969925/14/main_article_breadcrumb_bg8eb1.png)
 }
@@ -154,3 +147,12 @@ html {
 .main-cart-breadcrumb * {
     color: #ff5d22;
 }
+.main-blog-breadcrumb {
+    background-image: url(../../theme.hstatic.net/200000584705/1000969925/14/main_blog_breadcrumb_bg8eb1.png?v=2483)
+}
+
+.main-blog-breadcrumb * {
+    color: #333333;
+}
+	.main-product-breadcrumb{ background-image: url(../../theme.hstatic.net/200000584705/1000969925/14/main_product_breadcrumb_bg8eb1.png?v=2483) }
+	.main-product-breadcrumb *{ color: #333333; }

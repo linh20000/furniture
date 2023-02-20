@@ -2,7 +2,6 @@
 
 @section('content')
      <main class="main-layout">
-        <h1 class="d-none">F1GENZ Furniture 2</h1>  
         @include('frontend.home.slide')
         @include('frontend.home.four_banner')
         @include('frontend.home.fsale')
