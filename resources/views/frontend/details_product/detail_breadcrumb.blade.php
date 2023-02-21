@@ -9,7 +9,7 @@
 
                 <li class="breadcrumb-item"><a href="/collections/tat-ca-san-pham">Tất cả sản phẩm</a></li>
 
-                <li class="breadcrumb-item active"><span> Bàn ăn 4 chân cao cấp</span></li>
+                <li class="breadcrumb-item active"><span> {{$detail_product->name}}</span></li>
             </ol>
         </div>
     </div>

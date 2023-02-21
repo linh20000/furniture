@@ -113,7 +113,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         // delete product
         Route::get('list/delete/{id}', [App\Http\Controllers\Backend\ProductController::class,'deleteProduct'])->name('admin.deleteProduct');
     });
-
+    Route::prefix('appointment')->group(function() {
+        // get update
+        Route::get('list',[App\Http\Controllers\Backend\OrderController::class,'orderAppointment'])->name('get.orderAppointment');
+        Route::get('update/{id}',[App\Http\Controllers\Backend\OrderController::class,'updateAppointment'])->name('updateAppointment');
+        Route::post('update/{id}',[App\Http\Controllers\Backend\OrderController::class,'updatement'])->name('updatement');
+        Route::get('delete-{id}', [App\Http\Controllers\Backend\OrderController::class, 'deleteAppointment'])->name('deleteAppointment');
+    }); 
     // 
      // order route
     Route::prefix('order')->group(function() {
@@ -128,6 +134,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('delete-{id}', [App\Http\Controllers\Backend\OrderController::class, 'deleteOrder'])->name('deleteOrder');
 
     });
+     // plugin
+    Route::prefix('editing')->group(function () {
+        // get
+        Route::get('update', [App\Http\Controllers\Backend\EditConfigController::class, 'getEdit'])->name('admin.getEditProfile');
+        // post
+        Route::post('update', [App\Http\Controllers\Backend\EditConfigController::class, 'updatePlugin'])->name('admin.getEditProfile');
+    });
+
 
      //blog
     Route::prefix('blog')->group(function() {
@@ -161,9 +175,18 @@ Route::get('xoa-san-pam/{rowId}',  [App\Http\Controllers\Frontend\HomeController
 Route::post('thanh-toan',  [App\Http\Controllers\Frontend\HomeController::class, 'paymentAjax'])->name('payment.ajax');
 Route::get('tin-tuc',  [App\Http\Controllers\Frontend\HomeController::class, 'blogNew'])->name('blogNew');
 Route::get('tin-tuc/{id}-{slug}',  [App\Http\Controllers\Frontend\HomeController::class, 'blogDetail'])->name('blogDetail');
-Route::get('tat-ca-san-pham',  [App\Http\Controllers\Frontend\HomeController::class, 'showcollection'])->name('showcollection');
+// Route::get('tat-ca-san-pham',  [App\Http\Controllers\Frontend\HomeController::class, 'showcollection'])->name('showcollection');
 Route::get('huong-dan-su-dung',  [App\Http\Controllers\Frontend\HomeController::class, 'blogManual'])->name('blogManual');
 Route::get('tat-ca-san-pham',[App\Http\Controllers\Frontend\HomeController::class, 'collectionAll'])->name('collectionAll');
+Route::get('tat-ca-san-pham-style-2',[App\Http\Controllers\Frontend\HomeController::class, 'collectionAllhozion'])->name('collectionAll.hozion');
 
 Route::get('danh-sach-san-pham/{id}-{slug}',[App\Http\Controllers\Frontend\HomeController::class, 'collection'])->name('collection');
 
+
+Route::get('loc-san-pham', [App\Http\Controllers\Frontend\HomeController::class, 'filter'])->name('filter');
+Route::get('lien-he', [App\Http\Controllers\Frontend\HomeController::class, 'contact'])->name('contact');
+Route::post('/tu-van',[App\Http\Controllers\Frontend\HomeController::class , 'advisory'])->name('advisory.ajax');
+
+
+Route::get('/dang-ki' ,[App\Http\Controllers\Frontend\AuthController::class , 'register'] )->name('register');
+Route::post('/dang-ki' ,[App\Http\Controllers\Frontend\AuthController::class , 'postRegister'] )->name('postRegister');

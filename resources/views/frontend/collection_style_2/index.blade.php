@@ -3,7 +3,7 @@
 @section('script')
 	<script>
 			window.F1GENZ_vars = { 			
-				template: "collection",
+				template: "collection.horizontal",
 				shop: {
                 url: "http://127.0.0.1:8000/",
                 name: "F1GENZ Furniture 2",
@@ -44,7 +44,8 @@
 
 @section('content')
 <main class="main-layout">
-	<div class="main-collection" data-id="0">
+    <script>window.F1GENZ_vars.collection.featured = "horizontal"</script>
+	<div class="main-collection " data-id="0">
 		<div class="main-collection-breadcrumb lazyload" data-bg="../../theme.hstatic.net/200000584705/1000969925/14/main_collection_breadcrumb_bg8eb1.png?v=2483">
 			<div class="container">
 				<div class="section-title-all">
@@ -60,7 +61,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="main-collection-wrap vertical">
+			<div class="main-collection-wrap horizontal">
 				@include('frontend.collection.filter')
 				@include('frontend.collection.product_list')
 			</div>

@@ -132,81 +132,8 @@ Haravan.resizeImage = function(image, size) {
     }
 };
 
-Haravan.addItem = function(variant_id, quantity, callback) {
-  var quantity = quantity || 1;
-  var params = {
-    type: 'POST',
-    url: '/cart/add.js',
-    data: 'quantity=' + quantity + '&id=' + variant_id,
-    dataType: 'json',
-    success: function(line_item) { 
-      if ((typeof callback) === 'function') {
-        callback(line_item);
-      }
-      else {
-        Haravan.onItemAdded(line_item);
-      }
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      Haravan.onError(XMLHttpRequest, textStatus);
-    }
-  };
-  jQuery.ajax(params);
-};
 
-Haravan.addItemFromForm = function(form_id, callback) {
-    var params = {
-      type: 'POST',
-      url: '/cart/add.js',
-      data: jQuery('#' + form_id).serialize(),
-      dataType: 'json',
-      success: function(line_item) { 
-        if ((typeof callback) === 'function') {
-          callback(line_item);
-        }
-        else {
-          Haravan.onItemAdded(line_item);
-        }
-      },
-      error: function(XMLHttpRequest, textStatus) {
-        Haravan.onError(XMLHttpRequest, textStatus);
-      }
-    };
-    jQuery.ajax(params);
-};
 
-Haravan.getCart = function(callback) {
-  jQuery.getJSON('/cart.js', function (cart, textStatus) {
-    if ((typeof callback) === 'function') {
-      callback(cart);
-    }
-    else {
-      Haravan.onCartUpdate(cart);
-    }
-  });
-};
-
-Haravan.getCartShippingRatesForDestination = function(shipping_address, callback) {
-  var params = {
-    type: 'GET',
-    url: '/cart/shipping_rates.json',
-    data: Haravan.param({'shipping_address': shipping_address}),
-    dataType: 'json',
-    success: function(response) { 
-      rates = response.shipping_rates
-      if ((typeof callback) === 'function') {
-        callback(rates, shipping_address);
-      }
-      else {
-        Haravan.onCartShippingRatesUpdate(rates, shipping_address);
-      }
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      Haravan.onError(XMLHttpRequest, textStatus);
-    }
-  }
-  jQuery.ajax(params);
-};
 
 Haravan.getProduct = function(handle, callback) {
   jQuery.getJSON('/products/' + handle + '.js', function (product, textStatus) {
@@ -219,89 +146,7 @@ Haravan.getProduct = function(handle, callback) {
   });
 };
 
-Haravan.changeItem = function(variant_id, quantity, callback) {
-  var params = {
-    type: 'POST',
-    url: '/cart/change.js',
-    data:  'quantity='+quantity+'&id='+variant_id,
-    dataType: 'json',
-    success: function(cart) { 
-      if ((typeof callback) === 'function') {
-        callback(cart);
-      }
-      else {
-        Haravan.onCartUpdate(cart);
-      }
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      Haravan.onError(XMLHttpRequest, textStatus);
-    }
-  };
-  jQuery.ajax(params);
-};
 
-Haravan.removeItem = function(variant_id, callback) {
-  var params = {
-    type: 'POST',
-    url: '/cart/change.js',
-    data:  'quantity=0&id='+variant_id,
-    dataType: 'json',
-    success: function(cart) { 
-      if ((typeof callback) === 'function') {
-        callback(cart);
-      }
-      else {
-        Haravan.onCartUpdate(cart);
-      }
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      Haravan.onError(XMLHttpRequest, textStatus);
-    }
-  };
-  jQuery.ajax(params);
-};
-
-Haravan.clear = function(callback) {
-  var params = {
-    type: 'POST',
-    url: '/cart/clear.js',
-    data:  '',
-    dataType: 'json',
-    success: function(cart) { 
-      if ((typeof callback) === 'function') {
-        callback(cart);
-      }
-      else {
-        Haravan.onCartUpdate(cart);
-      }
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      Haravan.onError(XMLHttpRequest, textStatus);
-    }
-  };
-  jQuery.ajax(params);
-};
-
-Haravan.updateCartFromForm = function(form_id, callback) {
-  var params = {
-    type: 'POST',
-    url: '/cart/update.js',
-    data: jQuery('#' + form_id).serialize(),
-    dataType: 'json',
-    success: function(cart) {
-      if ((typeof callback) === 'function') {
-        callback(cart);
-      }
-      else {
-        Haravan.onCartUpdate(cart);
-      }
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      Haravan.onError(XMLHttpRequest, textStatus);
-    }
-  };
-  jQuery.ajax(params);
-};
 
 Haravan.updateCartAttributes = function(attributes, callback) {
   var data = '';
@@ -345,26 +190,6 @@ Haravan.updateCartAttributes = function(attributes, callback) {
 // ---------------------------------------------------------
 // POST to cart/update.js returns the cart in JSON.
 // ---------------------------------------------------------
-Haravan.updateCartNote = function(note, callback) {
-  var params = {
-    type: 'POST',
-    url: '/cart/update.js',
-    data: 'note=' + attributeToString(note),
-    dataType: 'json',
-    success: function(cart) {
-      if ((typeof callback) === 'function') {
-        callback(cart);
-      }
-      else {
-        Haravan.onCartUpdate(cart);
-      }
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      Haravan.onError(XMLHttpRequest, textStatus);
-    }
-  };
-  jQuery.ajax(params);
-};
 
 
 if (jQuery.fn.jquery >= '1.4') {

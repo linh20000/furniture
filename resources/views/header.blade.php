@@ -41,7 +41,7 @@
                     </a>
                     <div class="header-right-phone-detail">
                         <span>Hotline</span>
-                        <a href="tel:1900.63.60.99">1900.63.60.99</a>
+                        <a href="tel:1900.63.60.99">{{$config->hotline}}</a>
                     </div>
                 </div> 
                 <button class="shop-tool" type="button" data-type="shop-customer-header" data-toggle="modal" data-target="#accountLogin" data-whatever="@accountLogin" title="Tài khoản">
@@ -102,11 +102,11 @@
                             <ul class="menu1"> 
                                 @foreach ($interior as $item)
                                     <li class="hasChild">
-                                        <a href="collections/den-de-ban.html" title="{{$item->name}}">{{$item->name}}<span>›</span></a>
+                                        <a  title="{{$item->name}}">{{$item->name}}<span>›</span></a>
                                         <ul class="menu2">
                                             @foreach ($item->childs as $item_childs)
                                                 <li class="">
-                                                    <a href="collections/gia-treo.html" title="{{$item_childs->name}}">{{$item_childs->name}}</a>
+                                                    <a href="{{route('collection', [$item_childs->id, Str::slug($item_childs->name)])}}" title="{{$item_childs->name}}">{{$item_childs->name}}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -115,27 +115,13 @@
                             </ul>
                         </li>
                         <li class="hasChild">
-                            <a  href="collections/all.html" title="Danh mục sản phẩm">Danh mục sản phẩm<span>›</span></a>
+                            <a  title="Danh mục sản phẩm">Danh mục sản phẩm<span>›</span></a>
                             <ul class="menu1"> 
                                 <li class="">
-                                    <a href="collections/allfc2c.html?view=vertical" title="Danh mục Style 1">Danh mục Style 1</a>
+                                    <a href="{{route('collectionAll')}}" >Danh mục Style 1</a>
                                 </li>
                                 <li class="">
-                                    <a href="collections/allc267.html?view=horizontal" title="Danh mục Style 2">Danh mục Style 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="hasChild">
-                            <a  href="products/tu-quan-ao-3-cua-f1genz-cao-cap.html" title="Chi tiết sản phẩm">Chi tiết sản phẩm<span>›</span></a>
-                            <ul class="menu1"> 
-                                <li class="">
-                                    <a href="products/tu-quan-ao-3-cua-f1genz-cao-capdda0.html?view=style1" title="Chi tiết Style 1">Chi tiết Style 1</a>
-                                </li>
-                                <li class="">
-                                    <a href="products/tu-quan-ao-3-cua-f1genz-cao-cap1848.html?view=style2" title="Chi tiết Style 2">Chi tiết Style 2</a>
-                                </li>
-                                <li class="">
-                                    <a href="products/tu-quan-ao-3-cua-f1genz-cao-cap089e.html?view=style3" title="Chi tiết Style 3">Chi tiết Style 3</a>
+                                    <a href="{{route('collectionAll.hozion')}}" >Danh mục Style 2</a>
                                 </li>
                             </ul>
                         </li>

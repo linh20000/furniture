@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Interior;
 use App\Models\Banner;
 use App\Models\User;
+use App\Models\config;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -36,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
                 'banner_six_left'=>  Banner::orderBy('created_at', 'ASC')->where('type', '=', 'six')->take(3)->get(),
                 'banner_six_right'=>  Banner::orderBy('created_at', 'DESC')->where('type', '=', 'six')->take(3)->get(),
                 'user'=>  User::first(),
+                'config'=>config::first(),
             ]);
         });
     }

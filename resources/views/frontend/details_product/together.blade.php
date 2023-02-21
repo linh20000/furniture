@@ -1,5 +1,5 @@
 <div class="main-product-together">
-    <div class="main-product-together-title section-title-all"><span>Thường được mua cùng với  Bàn ăn 4 chân cao cấp</span></div>
+    <div class="main-product-together-title section-title-all"><span>Thường được mua cùng với  </span></div>
     <div class="main-product-together-wrap">
         <div class="main-product-together-left">
             <div class="main-product-together-left-data">

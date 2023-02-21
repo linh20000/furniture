@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Blog;
+use App\Models\Appointment;
 use App\Models\MiniCategory;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -64,7 +65,7 @@ class HomeController extends Controller
             ]
             
         ]);
-        return response()->json(['success'=>'Thêm giỏ hàng thành công','quantity'=>Cart::count() ]);
+        return response()->json(['success'=>'Thêm giỏ hàng thành công','quantity'=>Cart::count(), 'content' => Cart::content() ]);
     }
 
     public function showCart() {
@@ -100,7 +101,7 @@ class HomeController extends Controller
         // dd($data);
         Order::create($data);
         Cart::destroy();
-        return response()->json(['success'=>'Bạn đã đặt hàng thành công' ]);
+        return response()->json(['success'=>'Bạn đã đặt hàng thành công']);
     }
 
     // 
@@ -127,11 +128,74 @@ class HomeController extends Controller
 
     public function collection($id, $slug) {
 
-        $product = Product::orderBy('created_at', 'DESC')->where('category_id', '=', $id )->where('status', '=', 1)->get();
+        $product = Product::orderBy('created_at', 'DESC')->where('category_id', '=', $id )->where('status', '=', 1)->paginate(12);
         return view('frontend.collection.index', compact('product'));
     }
     public function collectionAll() {
         $product = Product::paginate(12);
         return view('frontend.collection.index', compact('product'));
     }
-}
+    public function collectionAllhozion() {
+        $product = Product::paginate(12);
+        return view('frontend.collection_style_2.index', compact('product'));
+    }
+
+    public function filter(Request $request) {
+        $brands = $request->brands;
+        $types = $request->types;
+        $sizes = $request->sizes;
+        $prices = $request->prices;
+        // dd(Product::whereIn('trademark', $brands)->get());
+        $product = Product::orderBy('created_at', 'DESC')->where('status', '=', 1);
+
+        if ($brands) $product = $product->whereIn('tradeMark', $brands);
+        if ($types) $product = $product->whereIn('product_line', $types);
+        if ($sizes) $product = $product->whereIn('size', $sizes);
+        if ($prices)  $product = $product->whereIn('sale_price', $prices);
+    // brands
+        if ($brands && $types) $product = $product->whereIn('tradeMark', $brands)->whereIn('product_line', $types);
+        if ($brands && $sizes) $product = $product->whereIn('tradeMark', $brands)->whereIn('size', $sizes);
+        if ($brands && $prices) $product = $product->whereIn('tradeMark', $brands)->whereIn('sale_price', $prices);
+        if ($brands && $types && $sizes) $product = $product->whereIn('tradeMark', $brands)->whereIn('product_line', $types)->whereIn('size', $sizes);
+        if ($brands && $prices && $sizes) $product = $product->whereIn('tradeMark', $brands)->whereIn('sale_price', $prices)->whereIn('size', $sizes);
+        if ($brands && $prices && $types) $product = $product->whereIn('tradeMark', $brands)->whereIn('sale_price', $prices)->whereIn('product_line', $types);
+        if ($brands && $types && $sizes && $prices) $product = $product->whereIn('tradeMark', $brands)->whereIn('product_line', $types)->whereIn('size', $sizes)->whereIn('sale_price', $prices);
+        if ($types && $prices) $product = $product->whereIn('sale_price', $prices)->whereIn('product_line', $types);
+        if ($types && $prices && $sizes) $product = $product->whereIn('sale_price', $prices)->whereIn('product_line', $types)->whereIn('size', $sizes);
+        if ($sizes && $prices) $product = $product->whereIn('sale_price', $prices)->whereIn('size', $sizes);
+        if ($sizes && $types) $product = $product->whereIn('product_line', $types)->whereIn('size', $sizes);
+        $product = $product->paginate(12);
+        return response()->json([
+            'data' => view('frontend.collection_filter.index', compact('product'))->render(),
+        ]);
+    }
+
+
+    public function contact() {
+        return view('frontend.about_us.index');
+    }
+    
+
+    public function advisory(Request $request) {
+        $data = $request->all();
+
+        $request->validate([
+            'name'=>'required',
+            'phoneNumber'=>'required',
+            'email'=>'required|email',
+            'address'=>'required',
+            'content'=>'required'
+        ],[
+            'name.required'=>'Vui lòng nhập tên của bạn',
+            'phoneNumber.required'=>'Vui lòng nhập số điện thoại',
+            'email.required'=>'Vui lòng nhập email',
+            'email.email'=>'Email không đúng',
+            'address.required'=>'Vui lòng nhập địa chỉ',
+            'content.required'=>'Vui lòng nhập nội dung cần tư vấn',
+        ]);
+
+        Appointment::create($data);
+
+        return response()->json(['success'=>'Cảm ơn bạn đã kết nối với FURNITURE']);
+    }
+}   

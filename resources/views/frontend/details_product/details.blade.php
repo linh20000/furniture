@@ -129,7 +129,7 @@
                 <button type="button" data-type="shop-quantity-plus" title="Tăng">+</button>
             </div>
         </div>
-        {{-- <div class="main-product-coupon">
+        <div class="main-product-coupon">
             <div class="shop-coupon" data-fancybox data-src="#shop-coupon-popup">
                 <label>Voucher ưu đãi: 
                     <img class="lazyload"
@@ -153,8 +153,8 @@
                     </li>
                 </ul>
             </div>
-        </div> --}}
-        {{-- <div class="main-product-freeship">
+        </div>
+        <div class="main-product-freeship">
 
             <div class="shop-freeship" data-freeship-price="5000000000">
                 <div class="shop-freeship-bar">
@@ -165,7 +165,7 @@
                 </div>
             </div>
 
-        </div> --}}
+        </div>
         <div class="main-product-cta">
             <button class="add_cart" data-type="main-product-add">
                 <strong>Thêm vào giỏ</strong>
@@ -234,6 +234,7 @@ $('.add_cart').click(function(e) {
             $('input[name=color]').val('')
             $('input[name=type_product]').val('')
             toastr.success(res.success);
+            $('.wrap_sp').text(res.data)
             $('.color_err').text('')
             $('.type_err').text('')
         },
@@ -254,3 +255,4 @@ $('.add_cart').click(function(e) {
 
 })
 </script>
+

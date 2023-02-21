@@ -16,49 +16,8 @@
 		<meta name="keywords" content="F1GENZ Furniture 2">
 		<meta name="robots" content="index,follow,noodp">
 		<meta name="revisit-after" content="1 day">
-		<script>
-			window.F1GENZ_vars = { 			
-				template: "blog",
-				account: {
-					logged:false,
-					id:null,
-					email:null	},
-				shop:{
-					url: "https://f1genz-furniture-2.myharavan.com",
-					name: "F1GENZ Furniture 2",
-					phone: "0932093794",
-					featured:{
-						super_fs: {
-							all_day: true,
-							slider: true,
-						},
-						animate: false,
-						contactPopup: {
-							check: true,
-							time: 5000,
-						},
-					}
-				},
-				collection:{
-					featured: "vertical"
-				},
-				quickview: null,
-				product: {
-					data:null,
-					gift: false,
-					availableOption: true,
-					featured: {
-						style_gallery: "style1",
-						contact_0: {
-							text:"Liên hệ ngay 0987654321",
-						}
-					}
-				},
-				article: { 
-					data: "null",
-				},
-			}		
-		</script>
+		
+		@yield('script')
 		<script>window.noPS = navigator.userAgent.indexOf('Chrome-Lighthouse') === -1 ? true : false</script>
 		<style>
 			.preload * { -webkit-transition: none !important; -moz-transition: none !important; -ms-transition: none !important;	-o-transition: none !important; }
@@ -86,7 +45,7 @@
 <link rel="preload" as="style" href="../../theme.hstatic.net/200000584705/1000969925/14/main.scss8eb1.css?v=2483">
 
 
-		<script type='text/javascript'>
+<script type='text/javascript'>
 if(navigator.userAgent.indexOf('Chrome-Lighthouse') === -1){
 if ((typeof Haravan) === 'undefined') {
   Haravan = {};
@@ -133,6 +92,7 @@ window.HaravanAnalytics.AutoTrack = true;
 
 
 <!-- Font -->
+    <meta name='csrf-token' content="{{csrf_token()}}">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" as="style">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
 <!-- Plugin -->
@@ -150,66 +110,71 @@ window.HaravanAnalytics.AutoTrack = true;
 <style>.main-collection-breadcrumb *, .main-collection-breadcrumb *:after, .main-collection-breadcrumb *:before{ color: #333333 !important; }</style>
 <link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/collection.scss8eb1.css?v=2483">
 <link rel="stylesheet" href="../../../theme.hstatic.net/200000584705/1000969925/14/article.scss8eb1.css?v=2483"> 
-
+<link rel="stylesheet" href="//theme.hstatic.net/200000584705/1000969925/14/cart.scss.css?v=2483">
+<link rel="stylesheet" href="//theme.hstatic.net/200000584705/1000969925/14/page.scss.css?v=2483">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//theme.hstatic.net/200000584705/1000969925/14/customer.scss.css?v=2483">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <link rel="stylesheet" href="{{asset('default.css')}}">
 <link rel="stylesheet" href="{{asset('cart.css')}}">
-
 <style>@media(max-width: 991px){ footer.footer { padding-bottom: 50px; } }</style>	</head> 
 	<body class="preload">
-        @include('header')
+		@include('header')
         @yield('content')
         @include('footer')
         @include('frontend.components.modal_popup')
-        <script src="../../theme.hstatic.net/200000584705/1000969925/14/plugin8eb1.js?v=2483"></script>
-        <script src="../../cdn.jsdelivr.net/npm/%40fancyapps/ui%404.0/dist/fancybox.umd.js"></script>
-        <script >
-            $("body").removeClass("preload");
-            document.addEventListener('lazybeforeunveil', function(e){
-                var bg = e.target.getAttribute('data-bg');
-                if(bg) e.target.style.backgroundImage = 'url(' + bg + ')';
-            });
-            if(window.noPS){
-                if($('input[name="g-recaptcha-response"]').length > 0){
-                    $.getScript('../../www.google.com/recaptcha/api4d7a.js?render=6LdD18MUAAAAAHqKl3Avv8W-tREL6LangePxQLM-').done(function(s,r){			
-                        $('head').append(s);
-                        $('input[name="g-recaptcha-response"]').each(function(){
-                            var flagId = $(this).attr('id');
-                            grecaptcha.ready(function() {
-                                grecaptcha.execute('6LdD18MUAAAAAHqKl3Avv8W-tREL6LangePxQLM-', {action: 'submit'})
-                                    .then(function(token) {
-                                    document.getElementById(flagId).value = token;
-                                });
-                            });
-                        })
-                    });
-                }
-            }else{
-                // Jquery touch
-                jQuery.event.special.touchstart = {
-                    setup: function( _, ns, handle ) {
-                        this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
-                    }
-                };
-                jQuery.event.special.touchmove = {
-                    setup: function( _, ns, handle ) {
-                        this.addEventListener("touchmove", handle, { passive: !ns.includes("noPreventDefault") });
-                    }
-                };
-            }
-        </script>
-        <script src="../../hstatic.net/0/0/global/option_selection.js"></script>
-        <script src="../../hstatic.net/0/0/global/api.jquery.js"></script>
+		<script src="//theme.hstatic.net/200000584705/1000969925/14/plugin.js?v=2483"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+        <script>
+			$("body").removeClass("preload");
+			document.addEventListener('lazybeforeunveil', function (e) {
+				var bg = e.target.getAttribute('data-bg');
+				if (bg) e.target.style.backgroundImage = 'url(' + bg + ')';
+			});
+			if (window.noPS) {
+				if ($('input[name="g-recaptcha-response"]').length > 0) {
+					$.getScript('https://www.google.com/recaptcha/api.js?render=6LdD18MUAAAAAHqKl3Avv8W-tREL6LangePxQLM-').done(function (s, r) {
+						$('head').append(s);
+						$('input[name="g-recaptcha-response"]').each(function () {
+							var flagId = $(this).attr('id');
+							grecaptcha.ready(function () {
+								grecaptcha.execute('6LdD18MUAAAAAHqKl3Avv8W-tREL6LangePxQLM-', { action: 'submit' })
+									.then(function (token) {
+										document.getElementById(flagId).value = token;
+									});
+							});
+						})
+					});
+				}
+			} else {
+				// Jquery touch
+				jQuery.event.special.touchstart = {
+					setup: function (_, ns, handle) {
+						this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
+					}
+				};
+				jQuery.event.special.touchmove = {
+					setup: function (_, ns, handle) {
+						this.addEventListener("touchmove", handle, { passive: !ns.includes("noPreventDefault") });
+					}
+				};
+			}
+		</script>
+        <script src="//hstatic.net/0/0/global/option_selection.js "></script>
+		<script src="//hstatic.net/0/0/global/api.jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script src="../../theme.hstatic.net/200000584705/1000969925/14/main8eb1.js?v=2483"></script> 
         <script src="../../theme.hstatic.net/200000584705/1000969925/14/blog8eb1.js?v=2483"></script>
         <script src="../theme.hstatic.net/200000584705/1000969925/14/index8eb1.js?v=2483"></script>
-        <script src="../../theme.hstatic.net/200000584705/1000969925/14/product8eb1.js?v=2483"></script>
+		<script src="//theme.hstatic.net/200000584705/1000969925/14/product.js?v=2483"></script>
 		<script src="../../theme.hstatic.net/200000584705/1000969925/14/collection8eb1.js?v=2483"></script>
 		<script src="../../../theme.hstatic.net/200000584705/1000969925/14/article8eb1.js?v=2483"></script>
+		<script src="//theme.hstatic.net/200000584705/1000969925/14/page.js?v=2483"></script>
+		<script src="//theme.hstatic.net/200000584705/1000969925/14/cart.js?v=2483"></script>
+		<script src="//theme.hstatic.net/200000584705/1000969925/14/customer.js?v=2483"></script>
 		<button class="overplay-all" title="Đóng"></button>
 	</body>
-
 <!-- Mirrored from f1genz-furniture-2.myharavan.com/blogs/all by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Feb 2023 17:41:25 GMT -->
 </html>
 

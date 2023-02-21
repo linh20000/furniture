@@ -1,5 +1,50 @@
 @extends('master')
-
+@section('script')
+     <script>
+        window.F1GENZ_vars = {
+            template: "index",
+            account: {
+                logged: false,
+                id: null,
+                email: null
+            },
+            shop: {
+                url: "http://127.0.0.1:8000/",
+                name: "F1GENZ Furniture 2",
+                phone: "0932093794",
+                featured: {
+                    super_fs: {
+                        all_day: true,
+                        slider: true,
+                    },
+                    animate: false,
+                    contactPopup: {
+                        check: true,
+                        time: 5000,
+                    },
+                }
+            },
+            collection: {
+                featured: "vertical"
+            },
+            quickview: null,
+            product: {
+                data: null,
+                gift: false,
+                availableOption: true,
+                featured: {
+                    style_gallery: "style1",
+                    contact_0: {
+                        text: "Liên hệ ngay 1900.63.60.99",
+                    }
+                }
+            },
+            article: {
+                data: "null",
+            },
+        }		
+    </script>
+@endsection
 @section('content')
      <main class="main-layout">
         @include('frontend.home.slide')

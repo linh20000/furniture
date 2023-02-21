@@ -74,6 +74,12 @@
               </li>
             </ul>
           </li>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Tư vấn</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('get.orderAppointment')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Danh sách</span></a>
+              </li>
+            </ul>
+          </li>
           <!--    -->
           <!--    -->
           <li class=" navigation-header"><span data-i18n="Misc">chỉnh sửa hệ thống </span><i data-feather="more-horizontal"></i>
@@ -82,7 +88,7 @@
           </li> -->
           <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="menu"></i><span class="menu-title text-truncate" data-i18n="Menu Levels">Thông tin footer</span></a>
             <ul class="menu-content">
-              <li><a class="d-flex align-items-center" href=""><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Chỉnh sửa thông tin</span></a>
+              <li><a class="d-flex align-items-center" href="{{route('admin.getEditProfile')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Chỉnh sửa thông tin</span></a>
               </li>
             </ul>
           </li>
