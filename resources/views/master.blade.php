@@ -256,7 +256,7 @@
 					alert('Sản phẩm đã có trong danh sách yêu thích')
 				} else {
 					oldData.push(item);
-					
+					alert('Đã thêm vào danh sách yêu thích')
 				}
 				localStorage.setItem('wishlist',JSON.stringify(oldData));
 			}
@@ -309,6 +309,7 @@
 				for (var i = 0; i < data.length; i++) {
 					if (data[i].id == id) {
 					data.splice(i, 1);
+					alert('Xóa thành công')
 					break;
 					}
 				}
