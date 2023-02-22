@@ -60,25 +60,11 @@
                         <li class="hasChild">
                             <a  href="" title="Danh mục sản phẩm">Danh mục sản phẩm<span>›</span></a>
                             <ul class="menu1"> 
-                                <li class="">
-                                    <a href="https://f1genz-furniture-2.myharavan.com/collections/all?view=vertical" title="Danh mục Style 1">Danh mục Style 1</a>
+                               <li class="">
+                                    <a href="{{route('collectionAll')}}" >Danh mục Style 1</a>
                                 </li>
                                 <li class="">
-                                    <a href="https://f1genz-furniture-2.myharavan.com/collections/all?view=horizontal" title="Danh mục Style 2">Danh mục Style 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="hasChild">
-                            <a  href="https://f1genz-furniture-2.myharavan.com/products/tu-quan-ao-3-cua-f1genz-cao-cap" title="Chi tiết sản phẩm">Chi tiết sản phẩm<span>›</span></a>
-                            <ul class="menu1"> 
-                                <li class="">
-                                    <a href="https://f1genz-furniture-2.myharavan.com/products/tu-quan-ao-3-cua-f1genz-cao-cap?view=style1" title="Chi tiết Style 1">Chi tiết Style 1</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://f1genz-furniture-2.myharavan.com/products/tu-quan-ao-3-cua-f1genz-cao-cap?view=style2" title="Chi tiết Style 2">Chi tiết Style 2</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://f1genz-furniture-2.myharavan.com/products/tu-quan-ao-3-cua-f1genz-cao-cap?view=style3" title="Chi tiết Style 3">Chi tiết Style 3</a>
+                                    <a href="{{route('collectionAll.hozion')}}" >Danh mục Style 2</a>
                                 </li>
                             </ul>
                         </li>

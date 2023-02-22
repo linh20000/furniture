@@ -6,7 +6,7 @@
             template: "customers[register]",
             account: {
                 logged: true,
-                id: ,
+                id: 23423,
                 email: ""
             },
             shop: {
@@ -62,34 +62,28 @@
                             </div>
                             <div class="auth-form-body">
                                 <div class="register-form-body">
-                                    <form accept-charset='UTF-8' action='{{route('postRegister')}}' method='post'>
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="register-last-name">Họ của bạn*</label>
-                                            <input type="text" id="register-last-name" class="form-control"
-                                                name="customer[last_name]" required>
-                                        </div>
+                                    <form accept-charset='UTF-8' action='' method='post'>
                                         <div class="form-group">
                                             <label for="register-first-name">Tên của bạn*</label>
                                             <input type="text" id="register-first-name" class="form-control"
-                                                name="customer[first_name]" required>
+                                                name="name" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="register-phone">Số điện thoại</label>
                                             <input type="text" id="register-phone" class="form-control"
-                                                name="customer[phone]" pattern='^\+?\d{0,10}'>
+                                                name="phoneNumber" pattern='^\+?\d{0,10}'>
                                         </div>
                                         <div class="form-group">
                                             <label>Giới tính</label>
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <input type="radio" id="register-gender-0" value="0"
-                                                        name="customer[gender]" checked />
+                                                    <input type="radio" id="register-gender-0" value="female"
+                                                        name="gender" checked />
                                                     <label for="register-gender-0">Nữ</label>
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="radio" id="register-gender-1" value="1"
-                                                        name="customer[gender]" />
+                                                    <input type="radio" id="register-gender-1" value="male"
+                                                        name="gender" />
                                                     <label for="register-gender-1">Nam</label>
                                                 </div>
                                             </div>
@@ -97,15 +91,16 @@
                                         <div class="form-group">
                                             <label for="register-email">Email*</label>
                                             <input type="email" id="register-email" class="form-control"
-                                                name="customer[email]" required>
+                                                name="email" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="register-password">Mật khẩu*</label>
                                             <input type="password" id="register-password" class="form-control"
-                                                name="customer[password]" required>
+                                                name="password" required>
                                         </div>
+                                        <input type="hidden" name="role" value="user">
                                         <div class="form-group">
-                                            <div class="btn btn-primary">
+                                            <div class="btn btn-primary register">
                                                 ĐĂNG KÝ
                                             </div>
                                         </div>
@@ -123,6 +118,27 @@
     </main>
 
     <script>
-        
+        $('.register').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: "{{route('postRegister')}}",
+                method: 'POST',
+                data: {
+                    _token:$('meta[name="csrf-token"]').attr('content'),
+                    name: $('input[name=name]').val(),
+                    phoneNumber: $('input[name=phoneNumber]').val(),
+                    gender: $('input[name=gender]').val(),
+                    email: $('input[name=email]').val(),
+                    password: $('input[name=password]').val(),
+                },
+                success: function (response) {
+                    alert('Login successful');
+                    // Redirect to home page or do other stuff here
+                },
+                error: function (xhr) {
+                    alert('Invalid login credentials');
+                }
+            });
+        });
     </script>
 @endsection

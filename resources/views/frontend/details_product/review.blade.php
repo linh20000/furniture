@@ -2,7 +2,19 @@
     <div id="hrv-product-reviews-sub" style="width:100%">
         <div class="section-title-all"><span>Đánh giá sản phẩm</span></div>
         <div class="hrv-product-reviews-summary" id="hrv-product-reviews-summary">
-            <div itemscope="" itemprop="aggregateRating" itemtype="http://schema.org/aggregateRating"><meta itemprop="itemreviewed" content="Bàn ăn 4 chân cao cấp"/><meta itemprop="reviewCount" content="1"/><div><div style="text-align: center"><h3>5</h3><div id="hrv-prv-summary-star" class="hrv-product-reviews-star" data-score="5" data-number="5"></div><meta itemprop="ratingValue" content="5"/><meta itemprop="bestRating" content="5"/><meta itemprop="worstRating" content="1"/><span>(1 đánh giá)</span></div></div></div> 
+            <div itemscope="" itemprop="aggregateRating" itemtype="http://schema.org/aggregateRating">
+                <meta itemprop="itemreviewed" content="Bàn ăn 4 chân cao cấp"/>
+                <meta itemprop="reviewCount" content="1"/>
+                <div>
+                    <div style="text-align: center">
+                        <h3>5</h3>
+                        <div id="hrv-prv-summary-star" class="hrv-product-reviews-star" data-score="5" data-number="5"></div>
+                        <meta itemprop="ratingValue" content="5"/>
+                        <meta itemprop="bestRating" content="5"/>
+                        <meta itemprop="worstRating" content="1"/>
+                        <span>(1 đánh giá)</span></div>
+                    </div>
+                </div> 
         </div> 
         <div class="hrv-product-reviews-list" id="hrv-product-reviews-list">
             <div itemprop='review' itemscope='' itemtype='http://schema.org/Review'>

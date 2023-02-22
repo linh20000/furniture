@@ -59,10 +59,10 @@
                 <strong>Mã sản phẩm: </strong><span>{{$product->product_code}}</span>
             </div>
             <div class="main-product-info-vendor">
-                <strong>Thương hiệu: </strong><span>F1GENZ</span>
+                <strong>Thương hiệu: </strong><span>{{$product->trademark}}</span>
             </div>
             <div class="main-product-info-type">
-                <strong>Dòng sản phẩm: </strong><span>{{$category_parent->name}}</span>
+                <strong>Dòng sản phẩm: </strong><span>{{$product->trademark}}</span>
             </div>
         </div>
         <div class="main-product-price">
@@ -115,7 +115,7 @@
             @endforeach
             <input type="hidden" name="color" value="">
             <input type="hidden" name="type_product" value="">
-            <input type="hidden" name="name" value="{{$product->name}}">
+            <input type="hidden" id="name" name="name" value="{{$product->name}}">
             <input type="hidden" name="product_code" value="{{$product->prodcut_code}}">
             <input type="hidden" name="price" value="{{$product->sale_price}}">
             <input type="hidden" name="old_price" value="{{$product->old_price}}">
@@ -154,20 +154,8 @@
                 </ul>
             </div>
         </div>
-        <div class="main-product-freeship">
-
-            <div class="shop-freeship" data-freeship-price="5000000000">
-                <div class="shop-freeship-bar">
-                    <div class="shop-freeship-bar-main"><span></span></div>
-                </div>
-                <div class="shop-freeship-note"> 
-                    Mua thêm <span>-277,230,000₫</span> để được miễn phí giao hàng trên toàn quốc
-                </div>
-            </div>
-
-        </div>
         <div class="main-product-cta">
-            <button class="add_cart" data-type="main-product-add">
+            <button class="add_cart w-100 mb-3">
                 <strong>Thêm vào giỏ</strong>
                 <span>Chọn ngay sản phẩm bạn yêu thích</span>
             </button>
@@ -175,7 +163,7 @@
                 <strong>Tư vấn</strong>
                 <span>Tư vấn thiết kế nội thất tùy chọn</span>
             </button>
-            <button type="button" data-type="main-product-send-info" onclick="window.open('/pages/lien-he')">
+            <button type="button" data-type="main-product-send-info" onclick="window.open('lien-he')">
                 <strong>Liên hệ</strong>
                 <span>Chúng tôi luôn bên bạn 24/7</span>
             </button>
@@ -207,7 +195,7 @@
 $('.add_cart').click(function(e) {
     e.preventDefault()
     let _token = $('meta[name="csrf-token"]').attr('content');
-    var name = $('input[name=name]').val();
+    var name = $('#name').val();
     var price =  $('input[name=price]').val();
     var thumbnail = $('input[name=thumbnail]').val();
     var old_price = $('input[name=old_price]').val();

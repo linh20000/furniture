@@ -113,6 +113,21 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         // delete product
         Route::get('list/delete/{id}', [App\Http\Controllers\Backend\ProductController::class,'deleteProduct'])->name('admin.deleteProduct');
     });
+    Route::prefix('products/interior')->group(function() {
+        // get product
+        Route::get('list', [App\Http\Controllers\Backend\InteriorProductController::class,'showProductList'])->name('admin.InteriorshowProductList');
+        Route::get('search', [App\Http\Controllers\Backend\InteriorProductController::class,'search'])->name('admin.Interiorproduct.search');
+        // post product
+        Route::get('create', [App\Http\Controllers\Backend\InteriorProductController::class,'getCreateProduct'])->name('admin.InteriorgetCreateProduct');
+        Route::post('create', [App\Http\Controllers\Backend\InteriorProductController::class,'addProduct'])->name('admin.InterioraddProduct');
+
+        // update Product
+        Route::get('list/update/{id}', [App\Http\Controllers\Backend\InteriorProductController::class,'getUpdateProduct'])->name('admin.InteriorgetUpdateProduct');
+        Route::post('list/update/{id}', [App\Http\Controllers\Backend\InteriorProductController::class,'updateProduct'])->name('admin.InteriorupdateProduct');
+
+        // delete product
+        Route::get('list/delete/{id}', [App\Http\Controllers\Backend\InteriorProductController::class,'deleteProduct'])->name('admin.InteriordeleteProduct');
+    });
     Route::prefix('appointment')->group(function() {
         // get update
         Route::get('list',[App\Http\Controllers\Backend\OrderController::class,'orderAppointment'])->name('get.orderAppointment');
@@ -121,6 +136,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('delete-{id}', [App\Http\Controllers\Backend\OrderController::class, 'deleteAppointment'])->name('deleteAppointment');
     }); 
     // 
+    //form_comment
+    Route::prefix('comment')->group(function(){
+        Route::get('list',[App\Http\Controllers\Backend\BlogController::class,'viewComment'])->name('comment.list');
+        Route::get('deleteComment/{id}', [App\Http\Controllers\Backend\BlogController::class, 'deleteComment'])->name('comment.delete');
+        Route::get('search', [App\Http\Controllers\Backend\BlogController::class,'search'])->name('admin.comment.search');
+    });
      // order route
     Route::prefix('order')->group(function() {
         //show list order
@@ -159,6 +180,15 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         // xóa blog
         Route::get('deleteblog/{id}', [App\Http\Controllers\Backend\BlogController::class, 'deleteBlog'])->name('admin.deleteblog');
     });
+    // policy
+    Route::prefix('policy')->group(function(){
+        Route::get('list',[App\Http\Controllers\Backend\PolicyController::class,'viewPolicy'])->name('policy.list');
+        Route::get('create',[App\Http\Controllers\Backend\PolicyController::class,'createPolicy'])->name('policy.create');
+        Route::post('create',[App\Http\Controllers\Backend\PolicyController::class,'storePolicy']);
+        Route::get('update/{id}',[App\Http\Controllers\Backend\PolicyController::class,'getUpdatePolicy'])->name('policy.getUpdate');
+        Route::post('update/{id}',[App\Http\Controllers\Backend\PolicyController::class,'updatePolicy'])->name('policy.update');
+        Route::get('deletePolicy/{id}', [App\Http\Controllers\Backend\PolicyController::class, 'deletePolicy'])->name('policy.delete');
+    });
 
 });
 
@@ -186,7 +216,15 @@ Route::get('danh-sach-san-pham/{id}-{slug}',[App\Http\Controllers\Frontend\HomeC
 Route::get('loc-san-pham', [App\Http\Controllers\Frontend\HomeController::class, 'filter'])->name('filter');
 Route::get('lien-he', [App\Http\Controllers\Frontend\HomeController::class, 'contact'])->name('contact');
 Route::post('/tu-van',[App\Http\Controllers\Frontend\HomeController::class , 'advisory'])->name('advisory.ajax');
+Route::get('tim-kiem', [App\Http\Controllers\Frontend\HomeController::class, 'search'])->name('search');
+
+Route::get('chinh-sach/{id}-{slug}',[App\Http\Controllers\Frontend\HomeController::class, 'blogDetailPolicy'])->name('blogDetail_policy');
+
+    Route::get('/dang-ki' ,[App\Http\Controllers\Frontend\AuthController::class , 'register'] )->name('register');
+    Route::post('/dang-ki' ,[App\Http\Controllers\Frontend\AuthController::class , 'postRegister'] )->name('postRegister');
+    Route::post('/dang-nhap' ,[App\Http\Controllers\Frontend\AuthController::class , 'login'] )->name('user.login');
+    Route::get('/thong-tin-tai-khoan' ,[App\Http\Controllers\Frontend\HomeController::class , 'userProfile'] )->name('user.profile');
+    Route::get('/dang-xuat' ,[App\Http\Controllers\Frontend\AuthController::class , 'logout'] )->name('logout');
 
 
-Route::get('/dang-ki' ,[App\Http\Controllers\Frontend\AuthController::class , 'register'] )->name('register');
-Route::post('/dang-ki' ,[App\Http\Controllers\Frontend\AuthController::class , 'postRegister'] )->name('postRegister');
+Route::post('add-to-favorites', [App\Http\Controllers\Frontend\HomeController::class, 'addToFavorites'])->name('product.addToFavorites');

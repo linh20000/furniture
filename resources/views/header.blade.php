@@ -3,14 +3,15 @@
         <div class="header-top">
             <div class="header-left">
                 <a href="{{route('home')}}" aria-label="F1GENZ Furniture 2">
-                    <img src="../theme.hstatic.net/200000584705/1000969925/14/shop_logo_image_medium8eb1.png" alt="F1GENZ Furniture 2" width="188" height="50">
+                    <img src="{{$config->logo}}" alt="F1GENZ Furniture 2" width="188" height="50">
                 </a>
             </div>
             <div class="header-center">
-                <form class="tool-search" action="https://f1genz-furniture-2.myharavan.com/search">
-                    <input type="hidden" name="type" value="product">
-                    <input required name="q" autocomplete="off" type="text" placeholder="Tìm kiếm sản phẩm...">
-                    <button type="submit" title="Tìm kiếm"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 612.01 612.01" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""> <path d="M606.209,578.714L448.198,423.228C489.576,378.272,515,318.817,515,253.393C514.98,113.439,399.704,0,257.493,0 C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586 l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8 c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407 S377.82,467.8,257.493,467.8z" fill="#000000" data-original="#000000" class=""></path></svg></button>
+                <form class="tool-search" action="{{route('search')}}" method="get">
+                    <input required name="name"  type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <button type="submit" title="Tìm kiếm">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 612.01 612.01" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""> <path d="M606.209,578.714L448.198,423.228C489.576,378.272,515,318.817,515,253.393C514.98,113.439,399.704,0,257.493,0 C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586 l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8 c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407 S377.82,467.8,257.493,467.8z" fill="#000000" data-original="#000000" class=""></path></svg>
+                    </button>
                     <button class="tool-search-overplay" title="Đóng"></button>
                     <div class="tool-search-smart"></div>
                 </form>
@@ -41,18 +42,26 @@
                     </a>
                     <div class="header-right-phone-detail">
                         <span>Hotline</span>
-                        <a href="tel:1900.63.60.99">{{$config->hotline}}</a>
+                        <a href="tel:{{$config->hotline}}">{{sprintf("(%s) %s-%s", substr($config->hotline, 0, 3), substr($config->hotline, 3, 3),substr($config->hotline, 3, 3),substr($config->hotline, 3, 3))}}</a>
                     </div>
                 </div> 
-                <button class="shop-tool" type="button" data-type="shop-customer-header" data-toggle="modal" data-target="#accountLogin" data-whatever="@accountLogin" title="Tài khoản">
-                    <svg data-name="Layer 1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16,20a8,8,0,1,1,8-8A8,8,0,0,1,16,20ZM16,6a6,6,0,1,0,6,6A6,6,0,0,0,16,6Z"></path><path d="M30,32H28A12,12,0,0,0,4,32H2a14,14,0,0,1,28,0Z"></path></svg>
-                </button>
-                <button class="shop-tool" type="button" data-type="shop-search-mobile" data-toggle="modal" data-target="#accountLogin" data-whatever="@accountLogin" title="Tài khoản">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 612.01 612.01" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""> <path d="M606.209,578.714L448.198,423.228C489.576,378.272,515,318.817,515,253.393C514.98,113.439,399.704,0,257.493,0 C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586 l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8 c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407 S377.82,467.8,257.493,467.8z" fill="#000000" data-original="#000000" class=""></path></svg>
-                </button>
+                @if (Auth::check())
+                    <a href="{{route('user.profile')}}" style="display: block;
+                                width: 25px;
+                                height: 28px;">
+                        <svg data-name="Layer 1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16,20a8,8,0,1,1,8-8A8,8,0,0,1,16,20ZM16,6a6,6,0,1,0,6,6A6,6,0,0,0,16,6Z"></path><path d="M30,32H28A12,12,0,0,0,4,32H2a14,14,0,0,1,28,0Z"></path></svg>
+                    </a>
+                @else
+                    <button class="shop-tool" type="button" data-type="shop-customer-header" data-toggle="modal" data-target="#accountLogin" data-whatever="@accountLogin" title="Tài khoản">
+                        <svg data-name="Layer 1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16,20a8,8,0,1,1,8-8A8,8,0,0,1,16,20ZM16,6a6,6,0,1,0,6,6A6,6,0,0,0,16,6Z"></path><path d="M30,32H28A12,12,0,0,0,4,32H2a14,14,0,0,1,28,0Z"></path></svg>
+                    </button>
+                    <button class="shop-tool" type="button" data-type="shop-search-mobile" data-toggle="modal" data-target="#accountLogin" data-whatever="@accountLogin" title="Tài khoản">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 612.01 612.01" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""> <path d="M606.209,578.714L448.198,423.228C489.576,378.272,515,318.817,515,253.393C514.98,113.439,399.704,0,257.493,0 C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586 l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8 c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407 S377.82,467.8,257.493,467.8z" fill="#000000" data-original="#000000" class=""></path></svg>
+                    </button>
+                @endif
                 <button class="shop-tool has-count" type="button" data-type="shop-wishlist-header" title="Yêu thích">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128" x="0" y="0" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""> <path d="M359.511,37.984c-38.907,0-75.282,14.653-103.511,41.478c-28.229-26.825-64.605-41.478-103.511-41.478 C68.406,37.984,0,108.033,0,194.135c0,49.918,42.543,112.126,126.449,184.895c61.346,53.204,123.555,93.023,124.176,93.419 c1.639,1.045,3.507,1.567,5.375,1.567c1.868,0,3.736-0.523,5.376-1.568c0.621-0.396,62.83-40.215,124.176-93.419 C469.457,306.26,512,244.052,512,194.135C512,108.033,443.594,37.984,359.511,37.984z M372.62,363.771 c-49.885,43.284-100.379,77.567-116.62,88.301c-16.216-10.715-66.578-44.903-116.448-88.153C61.34,296.089,20,237.378,20,194.135 C20,119.06,79.435,57.984,152.489,57.984c36.726,0,70.877,15.094,96.161,42.501c1.893,2.052,4.558,3.219,7.35,3.219 s5.457-1.167,7.35-3.219c25.285-27.406,59.435-42.5,96.161-42.5C432.565,57.984,492,119.06,492,194.135 C492,237.344,450.719,296.003,372.62,363.771z" fill="#000000" data-original="#000000"></path> <path d="M347.379,93.307l-0.376,0.065c-5.438,0.966-9.063,6.157-8.097,11.595c0.861,4.846,5.078,8.252,9.834,8.252 c0.581,0,1.17-0.051,1.76-0.156l0.199-0.034c5.446-0.917,9.118-6.075,8.201-11.521C357.983,96.06,352.82,92.393,347.379,93.307z" fill="#000000" data-original="#000000"></path> <path d="M439.056,131.382c-12.278-16.867-29.718-29.43-49.106-35.375c-5.281-1.621-10.873,1.349-12.492,6.629 c-1.619,5.28,1.349,10.873,6.629,12.492c31.959,9.8,54.279,41.078,54.279,76.063c0,5.523,4.477,10,10,10s10-4.477,9.999-10.001 C458.365,169.416,451.688,148.735,439.056,131.382z" fill="#000000" data-original="#000000"></path></svg>
-                    <span class="shop-wishlist-count">0</span>
+                    <span class="wislet"></span>
                 </button>
                 
                 <button class="shop-tool has-count" type="button" data-type="shop-cart-header" title="Giỏ hàng">
@@ -92,6 +101,12 @@
                                     </ul>
                                 </li>
                             @endforeach
+                            <li class="">
+                                    <a   title="Giường ngủ">Giường ngủ</a>
+                            </li>
+                            <li >
+                                    <a   title="Tủ và kệ">Tủ và kệ</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -104,7 +119,7 @@
                                     <li class="hasChild">
                                         <a  title="{{$item->name}}">{{$item->name}}<span>›</span></a>
                                         <ul class="menu2">
-                                            @foreach ($item->childs as $item_childs)
+                                            @foreach ($item->child as $item_childs)
                                                 <li class="">
                                                     <a href="{{route('collection', [$item_childs->id, Str::slug($item_childs->name)])}}" title="{{$item_childs->name}}">{{$item_childs->name}}</a>
                                                 </li>
@@ -132,7 +147,7 @@
                             <a  href="{{route('blogManual')}}" title="Hướng dẫn sử dụng">Hướng dẫn sử dụng</a>
                         </li>
                         <li class="">
-                            <a  href="" title="Liên hệ">Liên hệ</a>
+                            <a  href="{{route('contact')}}" title="Liên hệ">Liên hệ</a>
                         </li>
                     </ul>
                 </div>

@@ -19,8 +19,8 @@ F1GENZ.Helper = {
 				rows: options && options.rows ? options.rows: 1,
 				centerMode: options && options.centerMode ? options.centerMode: false,
 				focusOnSelect: options && options.focusOnSelect ? options.focusOnSelect: false,
-				autoplay: options && options.autoplay ? options.autoplay: true,
-				infinite: options && options.infinite ? options.infinite: true,
+				autoplay: options && options.autoplay ? options.autoplay: false,
+				infinite: options && options.infinite ? options.infinite: false,
 				autoplaySpeed: 6000,
 				fade: options && options.fade ? options.fade: false,
 				dots: true,
@@ -77,6 +77,115 @@ F1GENZ.Helper = {
 				});
 			}
 		})
+	},
+	getCart: function(){  
+		$.ajax({
+			type:"GET",
+			url:"/cart.js",
+			dataType: 'json',
+			async: false,
+			success: function(data){
+				F1GENZ.Helper.freeship(data);
+				$('button[data-type="shop-cart-header"] .shop-cart-count').html(data.item_count);
+				$('.shop-cart-sidebar a[href="/checkout"] span:last-child').html(Haravan.formatMoney(data.total_price) + '₫')
+				$('.shop-cart-sidebar .shop-cart-sidebar-note textarea').val(data.note);
+				if(data.item_count === 0){
+					$('.shop-cart-sidebar-body').html('<div class="shop-cart-sidebar-no">Giỏ hàng của bạn còn trống</div>')
+				}else{
+					$('.shop-cart-sidebar-body').html('<div class="shop-cart-sidebar-yes"></div>')
+				}
+
+				if(window.F1GENZ_vars.template == "cart"){
+					var attr = data.attributes;
+					if(!$.isEmptyObject(attr)){
+						$('.main-cart-data-full-invoice input[name="main-cart-data-full-invoice"]').prop('checked', true);
+						$('.main-cart-data-full-invoice .main-cart-data-full-invoice-data').show();
+						$.each(attr, (key, value) => {
+							$(`.main-cart-data-full-invoice input[name="${key}"]`).val(value);
+						})
+					}
+				}
+			}
+		})
+		$.ajax({
+			type:"GET",
+			url:"/cart?view=item",
+			async: false,
+			success: function(data){
+				$('.shop-cart-sidebar .shop-cart-sidebar-yes').html('').append(data); 
+			}
+		});
+	},
+	updateCart: function(type, id, quantity, string){
+		switch(type) {
+			case "add":
+				$.ajax({
+					type: 'POST',
+					async: false,
+					url: '/cart/add.js',
+					data:  { id: id, quantity: quantity },
+					dataType: 'json',
+					success: function(cart) { 
+						if(string == 'checkout') window.location.href = "/checkout";
+						swal({
+							title: "Cảm ơn bạn!",
+							text: "Sản phẩm đã được thêm vào giỏ thành công",
+							type: "success",
+							showCancelButton: true,
+							cancelButtonText: "Tiếp tục mua sắm",
+							cancelButtonColor: "var(--color_main2)",
+							confirmButtonColor: "var(--color_main)",
+							confirmButtonText: "Đến giỏ hàng",
+							closeOnConfirm: false
+						}, function() {
+							window.location.href="/cart";
+						});
+
+						F1GENZ.Helper.getCart();
+					},
+					error: (XMLHttpRequest, textStatus) => { swal("Xin lỗi bạn!", "Có chút vấn đề về tồn kho!", "error") }
+				})
+				break;
+			case "update":
+				$.ajax({
+					type: 'POST',
+					async: false,
+					url: '/cart/change.js',
+					data:  { id: id, quantity: quantity },
+					dataType: 'json',
+					success: (cart) => { 
+						$('.shop-cart-sidebar a[href="/checkout"] span:last-child').html(Haravan.formatMoney(cart.total_price) + '₫');
+						if(string == 'cart')
+							window.location.reload();
+						else
+							swal("", "Sản phẩm đã được cập nhật", "success")
+					},
+					error: (XMLHttpRequest, textStatus) => { swal("Xin lỗi bạn!", "Có chút vấn đề về tồn kho!", "error") }
+				})
+				break;
+			case "delete": 
+				$.ajax({
+					type: 'GET', 
+					async: false,
+					url: string,
+					success: (cart) => { F1GENZ.Helper.getCart(); },
+					error: (XMLHttpRequest, textStatus) => { swal("Oppz..", "Vui lòng thử lại sau", "error") }
+				})
+				break;
+			default:
+				$.ajax({
+					type: 'POST',
+					async: false,
+					url: '/cart/change.js',
+					data:  { note: string },
+					dataType: 'json',
+					success: (cart) => { 
+						$('.shop-cart-sidebar .shop-cart-sidebar-note textarea').html(cart.note);
+						$('.shop-cart-sidebar .shop-cart-sidebar-note').removeClass('active');
+					},
+					error: (XMLHttpRequest, textStatus) => { swal("Oppz..", "Vui lòng thử lại sau", "error") }
+				})
+		};
 	},
 	updateWCS: function(name, handle, dom, view, type){
 		// Wishtlist || Compare | Viewed
@@ -446,7 +555,7 @@ F1GENZ.General = {
 			$('body').on('submit', '.tool-search', function(e){
 				e.preventDefault();
 				var s = $(this).find('input[name="q"]').val();
-				window.location.href = '' + encodeURIComponent(s) + '))';
+				window.location.href = '/search?q=filter=((collectionid:product>=0)%26%26(title:product%20contains%20' + encodeURIComponent(s) + '))';
 			})
 
 			// Mobile

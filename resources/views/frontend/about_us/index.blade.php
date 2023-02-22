@@ -106,35 +106,28 @@
                             <p class="error content"></p>
                         <div  class="btn btn-outline insButton">Gửi thông tin</div>
                         <ul class="shop-social">
-                            <li><a href="http://facebook.com/" target="_blank" title="Chia sẻ qua Facebook"><img
+                            <li><a href="{{$config->network_fb}}" target="_blank" title="Chia sẻ qua Facebook"><img
                                         width="30" height="30" class="lazyload"
                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                         data-src="https://file.hstatic.net/200000588277/file/facebook__6__53aaa8d352524d3eb025af5203eaa437_icon.png"
                                         alt=" - Facebook"></a></li>
 
 
-                            <li><a href="http://Youtube.com/" target="_blank" title="Chia sẻ qua Youtube"><img
-                                        width="30" height="30" class="lazyload"
-                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-                                        data-src="https://file.hstatic.net/200000588277/file/youtube__5__4f04522e10494557a651f53a33ad4d76_icon.png"
-                                        alt=" - Youtube"></a></li>
-
-
-                            <li><a href="http://Pinterest.com/" target="_blank" title="Chia sẻ qua Pinterest"><img
+                            <li><a href="{{$config->network_ins}}" target="_blank" title="Chia sẻ qua Pinterest"><img
                                         width="30" height="30" class="lazyload"
                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                         data-src="https://file.hstatic.net/200000588277/file/pinterest_a1a15995132a4275845412deba5f1193_icon.png"
                                         alt=" - Pinterest"></a></li>
 
 
-                            <li><a href="http://Tiktok.com/" target="_blank" title="Chia sẻ qua Tiktok"><img
+                            <li><a href="{{$config->network_titok}}" target="_blank" title="Chia sẻ qua Tiktok"><img
                                         width="30" height="30" class="lazyload"
                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                         data-src="https://file.hstatic.net/200000588277/file/tik-tok_d85bb4e7468c43ac9ed5437649b7405c_icon.png"
                                         alt=" - Twitter"></a></li>
 
 
-                            <li><a href="http://Instagram.com/" target="_blank" title="Chia sẻ qua Instagram"><img
+                            <li><a href="{{$config->net_work_ins}}" target="_blank" title="Chia sẻ qua Instagram"><img
                                         width="30" height="30" class="lazyload"
                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                         data-src="https://file.hstatic.net/200000588277/file/instagram__3__7de3ebbce1f24003b516ca6c1d7c24d5_icon.png"

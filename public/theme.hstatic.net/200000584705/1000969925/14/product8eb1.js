@@ -3430,15 +3430,6 @@ F1GENZ.Product = {
       console.log(e);
     }
   },
-  addCart: function () {
-    $("body").on("click", 'button[data-type="main-product-add"]', function () {
-      F1GENZ.Helper.updateCart(
-        "add",
-        $(".main-product #main-product-select").val(),
-        +$('.main-product [name="quantity"]').val()
-      );
-    });
-  },
   statusVariants: {},
   statusOption1: {},
   setStatusVariants: function () {
@@ -3737,14 +3728,7 @@ F1GENZ.Product = {
         $('.main-product-cta button[data-type="main-product-add"] span').html(
           "Chọn ngay sản phẩm bạn yêu thích"
         );
-        $('.main-product-cta button[data-type="main-product-add"] strong').html(
-          "Thêm vào giỏ"
-        );
       } else {
-        $('.main-product-cta button[data-type="main-product-add"]').attr(
-          "disabled",
-          true
-        );
         $('.main-product-cta button[data-type="main-product-add"] span').html(
           "Liên hệ để được tư vấn thêm"
         );
@@ -3759,9 +3743,6 @@ F1GENZ.Product = {
       );
       $('.main-product-cta button[data-type="main-product-add"] span').html(
         "Chọn ngay sản phẩm bạn yêu thích"
-      );
-      $('.main-product-cta button[data-type="main-product-add"] strong').html(
-        "Thêm vào giỏ"
       );
       window.F1GENZ_vars.product.availableOption = false;
     }

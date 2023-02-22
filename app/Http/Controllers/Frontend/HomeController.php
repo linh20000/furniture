@@ -5,10 +5,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\ProductInterior;
 use App\Models\Blog;
 use App\Models\Appointment;
+use App\Models\Favorite;
+use App\Models\Policy;
+use App\Models\Interior;
 use App\Models\MiniCategory;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -28,18 +34,14 @@ class HomeController extends Controller
 
     public function showDetails($id, $slug) {
         $product = Product::find($id);
-        $relation_product = Product::where('tags', '=', $product->tags)->where('status', '=', 1)->get();
+        $relation_product = Product::where('tags', '=', $product->tags)->where('product_line', '!=', $product->product_line)->where('status', '=', 1)->take(2)->get();
+        $relation = Product::where('tags', '=', $product->tags)->where('product_line', '=', $product->product_line)->where('status', '=', 1)->get();
         $category_parent = MiniCategory::where('id' ,'=' ,$product->category_id)->first();
-        return view('frontend.details_product.index', compact('product','category_parent', 'relation_product'));
+        return view('frontend.details_product.index', compact('product','category_parent', 'relation_product', 'relation'));
     }
-
-
-
-
     public function showPayment() {
         return view('frontend.payment.index');
     }
-
     public function addCartAjax($id, Request $request) {
         // dd($request->all());
         $product = Product::FindOrFail($id);
@@ -67,18 +69,14 @@ class HomeController extends Controller
         ]);
         return response()->json(['success'=>'Thêm giỏ hàng thành công','quantity'=>Cart::count(), 'content' => Cart::content() ]);
     }
-
     public function showCart() {
         return view('frontend.shopping_cart.index');
     }
-
     public function deleteCart($rowId) {
         Cart::remove($rowId);
         return back();
     }
-
     public function paymentAjax(Request $request) {
-
         $request->validate([
             'name'=>'required',
             'email'=>'required|email',
@@ -103,29 +101,30 @@ class HomeController extends Controller
         Cart::destroy();
         return response()->json(['success'=>'Bạn đã đặt hàng thành công']);
     }
-
-    // 
-
     public function blogNew() {
         $blog = Blog::where('type_blog', '=', 'blog_new')->where('status', '=', '1')->paginate(6);
         $relation = Blog::where('type_blog','=','blog_new')->where('status', '=', '1')->take(3)->get();
         return view('frontend.blog.index',compact('blog', 'relation'));
     }
-
     public function blogDetail($id, $slug) {
         $blog_detail = Blog::find($id);
         return view('frontend.blog.detail_blog',compact('blog_detail'));
     }
+    public function BlogDetailPolicy($id, $slug) {
+
+        $blog_detail = Policy::find($id);
+        // dd($blog_detail);
+        return view('frontend.blog.detail_blog',compact('blog_detail'));
+
+    } 
      public function showCollection() {
         return view('frontend.collection.index');
     }
-
     public function blogManual() {
         $blog = Blog::where('type_blog','=', 'user_manual')->where('status', '=', '1')->paginate(6);
         $relation = Blog::where('type_blog','=', 'user_manual')->where('status', '=', '1')->take(3)->get();
         return view('frontend.blog.index', compact('blog', 'relation'));
     }
-
     public function collection($id, $slug) {
 
         $product = Product::orderBy('created_at', 'DESC')->where('category_id', '=', $id )->where('status', '=', 1)->paginate(12);
@@ -198,4 +197,36 @@ class HomeController extends Controller
 
         return response()->json(['success'=>'Cảm ơn bạn đã kết nối với FURNITURE']);
     }
+
+    public function userProfile() {
+        if (Auth::check()) {
+           $user =  auth()->user();
+           return view('frontend.user_profile.index',compact('user'));
+        }
+        return view('frontend.login.index');
+    }
+
+    public function search(Request $request){
+        $product = Product::where('name', 'LIKE', '%'. $request->name .'%')
+                            ->orWhere('product_code', 'LIKE', '%'. $request->name .'%')
+                            ->orWhere('sale_price', 'LIKE', '%'. $request->name .'%')
+                            ->orWhere('trademark', 'LIKE', '%'. $request->name .'%')
+                            ->orWhere('seo_title', 'LIKE', '%'. $request->name .'%')->paginate(12);
+        return view('frontend.collection.index', compact('product'));
+    }
+    public function addToFavorites(Request $request)
+    {
+        if (Auth()->check() == false) {
+            return view('frontend.login.index');
+        }
+        $favorite = new Favorite;
+        $favorite->user_id = Auth::user()->id;
+        $favorite->product_id = $request->productId;
+        $product = Product::where('id', '=', $request->productId)->get();
+        $count = count($product);
+        return response()->json([
+            'data' => view('frontend.favorites', compact('product'))->render(),
+            'count'=> $count,
+        ]);
+    }   
 }   

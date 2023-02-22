@@ -14,11 +14,11 @@ class AdminMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
-    {
-        if (!auth()->check() || auth()->user()->role !== 'admin') {
-            return redirect('/');
-        }
+    public function handle($request, Closure $next)
+{
+    if (Auth::check() && Auth::user()->role == 'admin') {
         return $next($request);
     }
+    return redirect('/')->with('error', 'Bạn không có quyền truy cập vào trang này');
+}
 }

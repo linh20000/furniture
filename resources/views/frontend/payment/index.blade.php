@@ -45,7 +45,7 @@
                                         <div class="field   field-show-floating-label">
                                             <div class="field-input-wrapper">
                                                 <label class="field-label" for="billing_address_full_name">Họ và tên</label>
-                                                <input placeholder="Họ và tên" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="name" name="name" value=""  autocomplete="false"/>
+                                                <input placeholder="Họ và tên" autocapitalize="off"  spellcheck="false" class="field-input" size="30" type="text" id="name" name="name" value=""  autocomplete="false"/>
                                             </div>
                                             <div class="error name"></div>
                                         </div>
@@ -253,7 +253,7 @@
     $('.payment').click(function(e) {
         e.preventDefault();
         let _token = $('meta[name="csrf-token"]').attr('content');
-        let name = $('input[name=name]').val();
+        let name = $('#name').val();
         let email = $('input[name=email]').val();
         let phoneNumber = $('input[name=phoneNumber]').val();
         let province = $('input[name=province]').val();

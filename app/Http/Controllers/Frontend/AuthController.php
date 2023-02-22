@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -14,6 +16,49 @@ class AuthController extends Controller
     }
 
     public function postRegister(Request $request) {
-        dd($request->all());
+        $request->validate([
+            'name' => 'required|string',
+            'phoneNumber' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|string|min:6',
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->gender = $request->gender;
+        $user->role = $request->role;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return response()->json(['message' => 'Đăng kí thành công']);
+    }
+
+    //
+    
+    public function login(Request $request)
+    {
+        $credential = $request->validate([
+               'email' => 'required|email',
+               'password' =>'required|min:6'
+           ]);
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            if ($user->role === 'user') {
+                $cookie = cookie('login', true, 60);
+                return redirect(route('home'))->cookie($cookie);
+            } else {
+                Auth::logout();
+                return response()->json(['error' => 'THông tin tài khoảng không đúng']);
+            }
+        } else {
+            return response()->json(['error' => 'THông tin tài khoảng không đúng']);
+        }
+    }
+    public function logout() {
+        Auth()->logout();
+        return redirect(route('home'));
     }
 }

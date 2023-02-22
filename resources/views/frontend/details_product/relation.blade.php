@@ -3,7 +3,7 @@
     <div class="main-product-relate-data">
 
         {{-- item product --}}
-        @foreach ($relation_product as $item)
+        @foreach ($relation as $item)
             @include('frontend.details_product.relation')
         @endforeach
 

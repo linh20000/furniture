@@ -29,6 +29,14 @@ class LoginController extends Controller
            ]);
         
         if (Auth::attempt($credential)) {
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                $request->session()->regenerate();
+                return redirect(route('admin.home'));
+            }
+            else {
+                return back()->with('message','Bạn không có quyền truy cập trang quản lí');
+            }
             $request->session()->regenerate();
             return redirect(route('admin.home'));
         } 

@@ -174,6 +174,23 @@ window.HaravanAnalytics.AutoTrack = true;
 		<script src="//theme.hstatic.net/200000584705/1000969925/14/cart.js?v=2483"></script>
 		<script src="//theme.hstatic.net/200000584705/1000969925/14/customer.js?v=2483"></script>
 		<button class="overplay-all" title="Đóng"></button>
+		<script>
+			function Add(params){
+				$.ajax({
+					type: 'POST',
+					url: "{{ route('product.addToFavorites') }}",
+					data: {
+						_token: $('meta[name="csrf-token"]').attr('content'),
+						productId: params,
+					},
+					success: function(response) {
+						toastr.success('Thêm sản phẩm yêu thích thành công' )
+                        $('.tacg').html(response.data)
+						$('.wislet').text(response.count)
+					}
+				})
+            }
+		</script>
 	</body>
 <!-- Mirrored from f1genz-furniture-2.myharavan.com/blogs/all by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Feb 2023 17:41:25 GMT -->
 </html>
