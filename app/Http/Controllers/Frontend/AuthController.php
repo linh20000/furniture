@@ -43,19 +43,18 @@ class AuthController extends Controller
                'email' => 'required|email',
                'password' =>'required|min:6'
            ]);
-
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            if ($user->role === 'user') {
-                $cookie = cookie('login', true, 60);
-                return redirect(route('home'))->cookie($cookie);
+                $user = Auth::user();
+                if ($user->hasRole('user')) { // Kiểm tra role của user
+                    $cookie = cookie('login', true, 60);
+                    return redirect(route('home'))->cookie($cookie);
+                } else {
+                    Auth::logout();
+                    return response()->json(['error' => 'Thông tin tài khoản không đúng']);
+                }
             } else {
-                Auth::logout();
-                return response()->json(['error' => 'THông tin tài khoảng không đúng']);
+                return response()->json(['error' => 'Thông tin tài khoản không đúng']);
             }
-        } else {
-            return response()->json(['error' => 'THông tin tài khoảng không đúng']);
-        }
     }
     public function logout() {
         Auth()->logout();

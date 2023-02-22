@@ -7,11 +7,11 @@
         <ul class="menu1"> 
              @foreach ($interior as $item)
                 <li class="hasChild">
-                    <a href="" title="{{$item->name}}">{{$item->name}}<span>›</span></a>
+                    <a style="cursor:pointer;" title="{{$item->name}}">{{$item->name}}<span>›</span></a>
                     <ul class="menu2">
                         @foreach ($item->child as $item)
                             <li class="">
-                                <a href="" title="{{$item->name}}">{{$item->name}}</a>
+                                <a href="{{route('collection', [$item->id, Str::slug($item->name)])}}" title="{{$item->name}}">{{$item->name}}</a>
                             </li>
                         @endforeach
                     </ul>

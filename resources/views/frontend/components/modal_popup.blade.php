@@ -92,7 +92,7 @@
                     <input type="hidden" name="contact[tags]" value="khách hàng tiềm năng, bản tin">     
                     <input required type="email" value="" placeholder="Nhập email của bạn..." name="contact[email]">
                     <button type="submit" title="Đăng ký"><span>Đăng ký</span></button>
-                    <span>* Tôi đã đồng ý với các <a href="collections/all.html">chính sách bảo mật</a> của F1GENZ Furniture 2</span>
+                    <span>* Tôi đã đồng ý với các <a href="">chính sách bảo mật</a> của F1GENZ Furniture 2</span>
                     <input id='caf0a3524e084218957130c5fa9a59a4' name='g-recaptcha-response' type='hidden'><noscript data-src='../www.google.com/recaptcha/api4d7a.js?render=6LdD18MUAAAAAHqKl3Avv8W-tREL6LangePxQLM-'></noscript><noscript>grecaptcha.ready(function() {grecaptcha.execute('6LdD18MUAAAAAHqKl3Avv8W-tREL6LangePxQLM-', {action: 'submit'}).then(function(token) {document.getElementById('caf0a3524e084218957130c5fa9a59a4').value = token;});});</noscript>
                 </form>
             </div>
@@ -126,7 +126,7 @@
     </div>
     <ul class="shop-menu-mobile-body">
         <li class="hasChild">
-            <a  href="collections/all.html" title="Tất cả sản phẩm">Tất cả sản phẩm<span>›</span></a>
+            <a  href="" title="Tất cả sản phẩm">Tất cả sản phẩm<span>›</span></a>
             <ul class="menu1"> 
                 @foreach ($interior as $item)
                 <li class="hasChild">
@@ -143,7 +143,7 @@
             </ul>
         </li>
         <li class="hasChild">
-            <a  href="collections/all.html" title="Danh mục sản phẩm">Danh mục sản phẩm<span>›</span></a>
+            <a  href="" title="Danh mục sản phẩm">Danh mục sản phẩm<span>›</span></a>
             <ul class="menu1"> 
                 <li class="">
                     <a href="{{route('collectionAll')}}" >Danh mục Style 1</a>
@@ -170,30 +170,30 @@
         </div>
         
         <ul class="shop-social"> 
-            <li><a href="collections/all.html" target="_blank" title="Chia sẻ qua Facebook"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            <li><a href="facebook.com" target="_blank" title="Chia sẻ qua Facebook"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                                                                                                                                                         data-src="https://file.hstatic.net/200000588277/file/facebook__6__53aaa8d352524d3eb025af5203eaa437_icon.png" alt="F1GENZ Furniture 2 - Facebook"></a></li>
             
             
-            <li><a href="collections/all.html" target="_blank" title="Chia sẻ qua Youtube"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            <li><a href="Youtube.com" target="_blank" title="Chia sẻ qua Youtube"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                                                                                                                                                     data-src="https://file.hstatic.net/200000588277/file/youtube__5__4f04522e10494557a651f53a33ad4d76_icon.png" alt="F1GENZ Furniture 2 - Youtube"></a></li>
             
             
-            <li><a href="collections/all.html" target="_blank" title="Chia sẻ qua Pinterest"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            <li><a href="Pinterest.com" target="_blank" title="Chia sẻ qua Pinterest"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                                                                                                                                                         data-src="https://file.hstatic.net/200000588277/file/pinterest_a1a15995132a4275845412deba5f1193_icon.png" alt="F1GENZ Furniture 2 - Pinterest"></a></li>
             
             
-            <li><a href="collections/all.html" target="_blank" title="Chia sẻ qua Tiktok"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            <li><a href="Twitter.com" target="_blank" title="Chia sẻ qua Tiktok"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                                                                                                                                                     data-src="https://file.hstatic.net/200000588277/file/tik-tok_d85bb4e7468c43ac9ed5437649b7405c_icon.png" alt="F1GENZ Furniture 2 - Twitter"></a></li>
             
             
-            <li><a href="collections/all.html" target="_blank" title="Chia sẻ qua Instagram"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            <li><a href="Linkedin.com" target="_blank" title="Chia sẻ qua Instagram"><img width="30" height="30" class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                                                                                                                                                         data-src="https://file.hstatic.net/200000588277/file/instagram__3__7de3ebbce1f24003b516ca6c1d7c24d5_icon.png" alt="F1GENZ Furniture 2 - Linkedin"></a></li>
             
         </ul>	
     </div>
 </div>
 <div class="shop-social-sidebar d-none d-sm-block">
-    <a style="background-color: #ffffff;" href="collections/all.html" title="Zalo" target="_blank">
+    <a style="background-color: #ffffff;" href="" title="Zalo" target="_blank">
         <img class="lazyload w-100" width="32" height="32" 
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 data-src="../theme.hstatic.net/200000584705/1000969925/14/shop_social_sidebar_item_image_1_icon8eb1.png"
@@ -201,35 +201,35 @@
         Zalo
     </a>
     
-    <a style="background-color: #ffffff;" href="collections/all.html" title="Snapchat" target="_blank">
+    <a style="background-color: #ffffff;" href="" title="Snapchat" target="_blank">
         <img class="lazyload w-100" width="32" height="32" 
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 data-src="../theme.hstatic.net/200000584705/1000969925/14/shop_social_sidebar_item_image_2_icon8eb1.png"
                 alt="Social Snapchat" >
         Snapchat
     </a>
-    <a style="background-color: #ffffff;" href="collections/all.html" title="Tiktok" target="_blank">
+    <a style="background-color: #ffffff;" href="" title="Tiktok" target="_blank">
         <img class="lazyload w-100" width="32" height="32" 
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 data-src="../theme.hstatic.net/200000584705/1000969925/14/shop_social_sidebar_item_image_3_icon8eb1.png"
                 alt="Social Tiktok" >
         Tiktok
     </a>
-    <a style="background-color: #ffffff;" href="collections/all.html" title="Instagram" target="_blank">
+    <a style="background-color: #ffffff;" href="" title="Instagram" target="_blank">
         <img class="lazyload w-100" width="32" height="32" 
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 data-src="../theme.hstatic.net/200000584705/1000969925/14/shop_social_sidebar_item_image_4_icon8eb1.png"
                 alt="Social Instagram" >
         Instagram
     </a>
-    <a style="background-color: #ffffff;" href="collections/all.html" title="Youtube" target="_blank">
+    <a style="background-color: #ffffff;" href="" title="Youtube" target="_blank">
         <img class="lazyload w-100" width="32" height="32" 
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 data-src="../theme.hstatic.net/200000584705/1000969925/14/shop_social_sidebar_item_image_5_icon8eb1.png"
                 alt="Social Youtube" >
         Youtube
     </a>
-    <a style="background-color: #ffffff;" href="collections/all.html" title="Youtube" target="_blank">
+    <a style="background-color: #ffffff;" href="" title="Youtube" target="_blank">
         <img class="lazyload w-100" width="32" height="32" 
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 data-src="../theme.hstatic.net/200000584705/1000969925/14/shop_social_sidebar_item_image_6_icon8eb1.png"
@@ -381,7 +381,7 @@
                                     <form >
                                         <div class="form-group">
                                             <label for="register-first-name">Tên của bạn*</label>
-                                            <input type="text" id="register-first-name" class="form-control"
+                                            <input type="text" id="register-name" class="form-control"
                                                 name="name" required>
                                         </div>
                                         <div class="form-group">
@@ -442,7 +442,7 @@
                 },
                 data: {
                     _token:$('meta[name="csrf-token"]').attr('content'),
-                    name: $('input[name=name]').val(),
+                    name: $('#register-name').val(),
                     phoneNumber: $('input[name=phoneNumber]').val(),
                     gender: $('input[name=gender]').val(),
                     email: $('input[name=email]').val(),

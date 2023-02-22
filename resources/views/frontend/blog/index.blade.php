@@ -54,7 +54,7 @@
 			</div>
 			<div c-lass="breadcrumb-wrap">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="../index.html">Trang chủ</a></li>
+					<li class="breadcrumb-item"><a href=".{{route('home')}}">Trang chủ</a></li>
  					<li class="breadcrumb-item active"><span>Blog - Tất cả bài viết</span></li>
 				</ol>
 			</div>

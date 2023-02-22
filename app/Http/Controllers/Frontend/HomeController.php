@@ -209,23 +209,52 @@ class HomeController extends Controller
         $prices = $request->prices;
         // dd(Product::whereIn('trademark', $brands)->get());
         $product = Product::orderBy('created_at', 'DESC')->where('status', '=', 1);
+        if ($brands) {
+            $product = $product->whereIn('tradeMark', $brands);
+        }
+        if ($types) {
+            $product = $product->whereIn('product_line', $types);
+        }
+        if ($sizes) {
+            $product = $product->whereIn('size', $sizes);
+        }
+        if ($prices) {
+            $product = $product->whereIn('sale_price', $prices);
+        }
 
-        if ($brands) $product = $product->whereIn('tradeMark', $brands);
-        if ($types) $product = $product->whereIn('product_line', $types);
-        if ($sizes) $product = $product->whereIn('size', $sizes);
-        if ($prices)  $product = $product->whereIn('sale_price', $prices);
-    // brands
-        if ($brands && $types) $product = $product->whereIn('tradeMark', $brands)->whereIn('product_line', $types);
-        if ($brands && $sizes) $product = $product->whereIn('tradeMark', $brands)->whereIn('size', $sizes);
-        if ($brands && $prices) $product = $product->whereIn('tradeMark', $brands)->whereIn('sale_price', $prices);
-        if ($brands && $types && $sizes) $product = $product->whereIn('tradeMark', $brands)->whereIn('product_line', $types)->whereIn('size', $sizes);
-        if ($brands && $prices && $sizes) $product = $product->whereIn('tradeMark', $brands)->whereIn('sale_price', $prices)->whereIn('size', $sizes);
-        if ($brands && $prices && $types) $product = $product->whereIn('tradeMark', $brands)->whereIn('sale_price', $prices)->whereIn('product_line', $types);
-        if ($brands && $types && $sizes && $prices) $product = $product->whereIn('tradeMark', $brands)->whereIn('product_line', $types)->whereIn('size', $sizes)->whereIn('sale_price', $prices);
-        if ($types && $prices) $product = $product->whereIn('sale_price', $prices)->whereIn('product_line', $types);
-        if ($types && $prices && $sizes) $product = $product->whereIn('sale_price', $prices)->whereIn('product_line', $types)->whereIn('size', $sizes);
-        if ($sizes && $prices) $product = $product->whereIn('sale_price', $prices)->whereIn('size', $sizes);
-        if ($sizes && $types) $product = $product->whereIn('product_line', $types)->whereIn('size', $sizes);
+        if ($brands && $types) {
+            $product = $product->whereIn('tradeMark', $brands)->whereIn('product_line', $types);
+        }
+        if ($brands && $sizes) {
+            $product = $product->whereIn('tradeMark', $brands)->whereIn('size', $sizes);
+        }
+        if ($brands && $prices) {
+            $product = $product->whereIn('tradeMark', $brands)->whereIn('sale_price', $prices);
+        }
+        if ($brands && $types && $sizes) {
+            $product = $product->whereIn('tradeMark', $brands)->whereIn('product_line', $types)->whereIn('size', $sizes);
+        }
+        if ($brands && $prices && $sizes) {
+            $product = $product->whereIn('tradeMark', $brands)->whereIn('sale_price', $prices)->whereIn('size', $sizes);
+        }
+        if ($brands && $prices && $types) {
+            $product = $product->whereIn('tradeMark', $brands)->whereIn('sale_price', $prices)->whereIn('product_line', $types);
+        }
+        if ($brands && $types && $sizes && $prices) {
+            $product = $product->whereIn('tradeMark', $brands)->whereIn('product_line', $types)->whereIn('size', $sizes)->whereIn('sale_price', $prices);
+        }
+        if ($types && $prices) {
+            $product = $product->whereIn('sale_price', $prices)->whereIn('product_line', $types);
+        }
+        if ($types && $prices && $sizes) {
+            $product = $product->whereIn('sale_price', $prices)->whereIn('product_line', $types)->whereIn('size', $sizes);
+        }
+        if ($sizes && $prices) {
+            $product = $product->whereIn('sale_price', $prices)->whereIn('size', $sizes);
+        }
+        if ($sizes && $types) {
+            $product = $product->whereIn('product_line', $types)->whereIn('size', $sizes);
+        }
         $product = $product->paginate(12);
         return response()->json([
             'data' => view('frontend.collection_filter.index', compact('product'))->render(),
@@ -279,23 +308,25 @@ class HomeController extends Controller
     }
     public function addToFavorites(Request $request)
     {
-        if (Auth()->check() == false) {
+        if (!Auth::check()) {
             return view('frontend.login.index');
         }
+
         $favorite = new Favorite;
         $favorite->user_id = Auth::user()->id;
         $favorite->product_id = $request->productId;
-        $product = Product::where('id', '=', $request->productId)->get();
-        // dd($product);
-        $count = count($product);
+
+        $product = Product::where('id', $request->productId)->get();
+        $count = $product->count();
+
         return response()->json([
             'data' => view('frontend.favorites', compact('product'))->render(),
-            'count'=> $count,
+            'count' => $count,
         ]);
     }   
     public function registercoupon(Request $request) {
-                Coupon::create($request->all());
-         return response()->json([
+        Coupon::create($request->all());
+        return response()->json([
             'success' => true,
         ]);
     }
