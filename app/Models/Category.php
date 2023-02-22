@@ -28,7 +28,7 @@ class Category extends Model
     // 
 // mini category
     public function child() {
-        return $this->hasMany(MiniCategory::class, 'id');
+        return $this->hasMany(MiniCategory::class, 'category_id');
     }
     // 
 }

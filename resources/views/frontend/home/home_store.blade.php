@@ -3,7 +3,7 @@
         <div class="home-store-wrap-left section-title-all">
             <h2>Showroom Nội thất F1genz</h2>
             <p>Luôn cập nhật những xu hướng mới nhất của thị trường nội thất, mang đến các sản phẩm chất lượng cho người tiêu dùng.</p>
-            <a href="collections/all.html" aria-label="Showroom Nội thất F1genz">Xem ngay</a>
+            <a href="{{route('collectionAll')}}" aria-label="Showroom Nội thất F1genz">Xem ngay</a>
         </div>
         <div class="home-store-wrap-right">
             <picture>

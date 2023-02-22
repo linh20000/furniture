@@ -33,7 +33,7 @@
             </div>
             <div class="card-body p-0">
                 
-                <form id="cerfitication" action="{{route('admin.updateInteriorCategory',[$category->id])}}" method="POST" enctype="multipart/form-data">
+                <form id="cerfitication" action="{{route('admin.updateCategory',[$category->id])}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">

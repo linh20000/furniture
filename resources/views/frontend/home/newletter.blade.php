@@ -4,7 +4,7 @@
             <div class="home-newletter-wrap-left">
                 <h3>Nhận ưu đãi và coupon mới nhất!</h3>
                 <p>Chúng tôi cam kết bảo mật không lộ thông tin của bạn.</p>
-                <form accept-charset='UTF-8' action='https://f1genz-furniture-2.myharavan.com/account/contact' class='contact-form' method='post'>
+                <form  action="" method='post'>
                     <input name='form_type' type='hidden' value='customer'>
                     <input name='utf8' type='hidden' value='✓'>
 
@@ -13,10 +13,10 @@
                     <input type="hidden" name="contact[tags]" value="Khách hàng đăng ký nhận tin">
                     <input type="hidden" name="contact[first_name]" value="Người đăng ký">
                     <input type="hidden" name="contact[last_name]" value="">
-                    <input type="email" required placeholder="Nhập địa chỉ email của bạn..." name="contact[email]">                
-                    <button type="submit">Đăng ký</button>
-                    <input id='25637f8b42e14fd0a88fe0c70a5658a7' name='g-recaptcha-response' type='hidden'><noscript data-src='../www.google.com/recaptcha/api4d7a.js?render=6LdD18MUAAAAAHqKl3Avv8W-tREL6LangePxQLM-'></noscript><noscript>grecaptcha.ready(function() {grecaptcha.execute('6LdD18MUAAAAAHqKl3Avv8W-tREL6LangePxQLM-', {action: 'submit'}).then(function(token) {document.getElementById('25637f8b42e14fd0a88fe0c70a5658a7').value = token;});});</noscript></form>
+                    <input type="email" required placeholder="Nhập địa chỉ email của bạn..." name="email">                
+                    <div class="btn-sm cursor-pointer" onclick="registerCoupon()">Đăng ký</div>
                     <p>Nhận ngay coupon giảm 15% khi đăng ký ngay</p>
+                </form>
             </div>
             <div class="home-newletter-wrap-right">
                 <picture>

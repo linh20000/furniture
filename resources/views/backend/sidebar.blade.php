@@ -52,6 +52,56 @@
               </li>
             </ul>
           </li>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Pages">Sản phẩm</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('admin.showProductList')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="License">Quản lý sản phẩm</span></a>
+              </li>
+              <li><a class="d-flex align-items-center" href="{{route('admin.getCreateProduct')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="API Key">Thêm sản phẩm</span></a>
+              </li>
+            </ul>
+          </li>
+           <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Pages">Sản phẩm nội thấtInterior</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('admin.InteriorshowProductList')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="License">Quản lý sản phẩm</span></a>
+              </li>
+              <li><a class="d-flex align-items-center" href="{{route('admin.InteriorgetCreateProduct')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="API Key">Thêm sản phẩm</span></a>
+              </li>
+            </ul>
+          </li>
+           <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Đơn hàng</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('showListOrder')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Danh sách</span></a>
+              </li>
+            </ul>
+          </li>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Pages">Blog</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('blog.list')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="License">Danh sách blog</span></a>
+              </li>
+              <li><a class="d-flex align-items-center" href="{{route('blog.create')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="API Key">Thêm blog</span></a>
+              </li>
+            </ul>
+          </li>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Tư vấn</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('get.orderAppointment')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Danh sách</span></a>
+              </li>
+            </ul>
+          </li>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Bình luận - Phản hồi</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('comment.list')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Danh sách phản hồi</span></a>
+              </li>
+            </ul>
+          </li>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Pages">Chính sách</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center" href="{{route('policy.list')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="License">Danh sách chính sách</span></a>
+              </li>
+              <li><a class="d-flex align-items-center" href="{{route('policy.create')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="API Key">Thêm chính sách</span></a>
+              </li>
+            </ul>
+          </li>
           <!--    -->
           <!--    -->
           <li class=" navigation-header"><span data-i18n="Misc">chỉnh sửa hệ thống </span><i data-feather="more-horizontal"></i>
@@ -60,7 +110,7 @@
           </li> -->
           <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="menu"></i><span class="menu-title text-truncate" data-i18n="Menu Levels">Thông tin footer</span></a>
             <ul class="menu-content">
-              <li><a class="d-flex align-items-center" href=""><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Chỉnh sửa thông tin</span></a>
+              <li><a class="d-flex align-items-center" href="{{route('admin.getEditProfile')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Chỉnh sửa thông tin</span></a>
               </li>
             </ul>
           </li>

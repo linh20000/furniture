@@ -181,7 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Laravel\Sanctum\SanctumServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -194,7 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        SEO\SeoServiceProvider::class
     ],
 
     /*
@@ -210,6 +210,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
     ])->toArray(),
 
 ];

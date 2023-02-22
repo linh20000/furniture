@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Coupon;
 
 class LoginController extends Controller
 {
@@ -17,8 +19,10 @@ class LoginController extends Controller
     }
 
     // dashboard
-    public function showDashboard() {
-        return view('backend.home.index');
+    public function showHome() {
+        $data = Order::orderBy('created_at', "DESC")->take(5)->get();
+        $coupon = Coupon::orderBy('created_at','DESC')->take(5)->get();
+        return view('backend.home.index', compact('data','coupon'));
     }
     
     // login
@@ -29,6 +33,14 @@ class LoginController extends Controller
            ]);
         
         if (Auth::attempt($credential)) {
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                $request->session()->regenerate();
+                return redirect(route('admin.home'));
+            }
+            else {
+                return back()->with('message','Bạn không có quyền truy cập trang quản lí');
+            }
             $request->session()->regenerate();
             return redirect(route('admin.home'));
         } 

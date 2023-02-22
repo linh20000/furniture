@@ -524,10 +524,7 @@ F1GENZ.General = {
 				if(e.which !== 40 && e.which !== 38){
 					var s = $(this).val();
 					if(	typeof s === 'string' && s.length>0 ){
-						$.get('/search?q=filter=((collectionid:product>=0)%26%26(title:product%20contains%20' + encodeURIComponent(s) + '))&view=smart', function(res){ 
-							$('.tool-search-smart').html(res).parent().addClass('active');
-							$('.body, html').addClass('open-noscroll');
-						});
+						return
 					}else{
 						$('.tool-search-smart').parent().removeClass('active');
 						$('body, html').removeClass('open-noscroll');
@@ -551,12 +548,6 @@ F1GENZ.General = {
 				$('body, html').removeClass('open-noscroll');
 			})
 
-			// Submit
-			$('body').on('submit', '.tool-search', function(e){
-				e.preventDefault();
-				var s = $(this).find('input[name="q"]').val();
-				window.location.href = '/search?q=filter=((collectionid:product>=0)%26%26(title:product%20contains%20' + encodeURIComponent(s) + '))';
-			})
 
 			// Mobile
 			$('body').on('click', 'button[data-type="shop-search-mobile"]', function(e){
@@ -564,7 +555,7 @@ F1GENZ.General = {
 				$('.tool-search').toggleClass('show'); 
 			})
 		}catch(e){
-			console.log(e);
+			// console.log(e);
 		}
 	},
 };

@@ -30,9 +30,6 @@ class CategoryController extends Controller
         ];
         $messages = [
             'name.required'    => 'Chưa nhập tên',
-            'title.required'=>'Chưa nhập tiêu đề',
-            'description.required'=>'Chưa nhập miêu tả',
-            'thumbnail.required'    => 'Chưa nhập ảnh',
             'seo_title.required' => 'Chưa nhập tiêu đề tìm kiếm',
             'seo_keyword.required' => 'Chưa nhập từ khóa tìm kiếm',
             'seo_description.required'=>'Chưa nhập miêu tả tìm kiếm',

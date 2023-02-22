@@ -22,8 +22,12 @@ class Interior extends Model
         return $this->belongsTo(Interior::class);
     }
 
-    public function childs() {
+    public function child() {
         return $this->hasMany(Interior::class, 'parent_id');
     }
     // 
+
+    public function childs(){
+        return $this->hasMany(ProductInterior::class ,'category_id');
+    }
 }
