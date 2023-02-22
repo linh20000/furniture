@@ -262,7 +262,13 @@
     </div>
     <div class="container">
         <div class=" tacg">
-            <p class="shop-wishlist-modal-null wcs-null w-100 text-center">Chưa có sản phẩm trong danh sách yêu thích</p>
+            <div class="shop-wishlist-modal-body slick-initialized slick-slider slick-dotted">
+                <div class="slick-list draggable">
+                    <div class="slick-track" id="wishList" style="opacity: 1; width: 100%; display: flex; flex-wrap: wrap; transform: translate3d(0px, 0px, 0px);">
+                    
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -222,6 +222,98 @@
 					}
 				})
 			}
+
+			function wishList(id) {
+				var name = $('#name' + id).val();
+				var price = $('#price' + id).val();
+				var oldPrice = $('#old_price' + id).val();
+				var discount = $('#percent_discount' + id).val();
+				var thumbnail = $('#thumbnail' + id).val();
+				var url = $('#url' + id).val();
+				 var wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+				var item = {
+					'id':id,
+					'name':name,
+					'price':price,
+					'oldPrice':oldPrice,
+					'discount':discount,
+					'thumbnail':thumbnail,
+					'url':url,
+				}
+				//  wishlist.push(item);
+
+				localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+				if(localStorage.getItem('wishlist') == null) {
+					localStorage.setItem('wishlist', [])
+				}
+				var oldData = JSON.parse(localStorage.getItem('wishlist'));
+
+				var matches = $.grep(oldData, function(obj) {
+					return obj.id === id
+				})
+				if(matches.length) {
+					alert('Sản phẩm đã có trong danh sách yêu thích')
+				} else {
+					oldData.push(item);
+					
+				}
+				localStorage.setItem('wishlist',JSON.stringify(oldData));
+			}
+			
+			function view() {
+				if(localStorage.getItem('wishlist') != null) {
+					var data = JSON.parse(localStorage.getItem('wishlist'))
+					data.reverse();
+					var length = data.length;
+					$('.wislet').text(`${length}`)
+					for (let i = 0; i < data.length; i++) {
+						var id = data[i].id;
+						var name = data[i].name;
+						var price = data[i].price;
+						var oldPrice = data[i].oldPrice;
+						var discount = data[i].discount;
+						var thumbnail = data[i].thumbnail;
+						var url = data[i].url;
+						$('#wishList').append(`
+							<div class="product-item product-item-small mt-2 slick-current slick-active" data-id="${id}" data-handle="${id}" tabindex="0" role="tabpanel" id="slick-slide60" aria-describedby="slick-slide-control60" style="width: 454px;" data-slick-index="0" aria-hidden="false">
+								<div class="product-item-small-wrap">
+									<div class="product-item-small-image">
+										<a href="${url}" aria-label="Đèn bàn cao cấp F1GENZ" class="product-item-small-image-link" tabindex="0">			
+											<img class=" lazyloaded" src="${thumbnail}" data-src="${thumbnail}" alt="${name}">
+										</a>
+									</div>
+									<div class="product-item-small-info">
+										<h3 class="product-item-small-info-title">
+											<a href="${url}" aria-label="Đèn bàn cao cấp F1GENZ" tabindex="0">${name}</a>
+										</h3>
+										<p class="product-item-small-info-price">
+											<strong>${price}₫</strong>
+											<del>${oldPrice}₫</del>
+											<span>(-${discount}%)</span>
+										</p>
+										<div class="product-item-small-info-action">
+											<button type="button" title="Xoá yêu thích" class="shop-wishlist-button-remove" onclick="removeItemFromLocalStorage(${id})" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 448 448.00446" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="m283.429688 45.714844h-73.140626v-18.285156c0-15.125-12.304687-27.429688-27.429687-27.429688h-54.855469c-15.125 0-27.429687 12.304688-27.429687 27.429688v18.285156h-73.144531c-15.125 0-27.42578175 12.304687-27.42578175 27.429687v45.710938h18.28515575v301.71875c0 15.125 12.300782 27.429687 27.425782 27.429687h219.429687c15.125 0 27.429688-12.304687 27.429688-27.429687v-301.71875h18.285156v-45.710938c0-15.125-12.304687-27.429687-27.429687-27.429687zm-164.570313-18.285156c0-5.042969 4.097656-9.144532 9.144531-9.144532h54.855469c5.046875 0 9.144531 4.101563 9.144531 9.144532v18.285156h-73.144531zm155.429687 393.144531c0 5.046875-4.097656 9.144531-9.144531 9.144531h-219.429687c-5.042969 0-9.140625-4.097656-9.140625-9.144531v-301.71875h237.714843zm18.285157-320.003907h-274.285157v-27.425781c0-5.042969 4.097657-9.144531 9.140626-9.144531h256c5.046874 0 9.144531 4.101562 9.144531 9.144531zm0 0" fill="#000000" data-original="#000000" class=""></path><path d="m210.289062 384.003906c5.054688 0 9.140626-4.089844 9.140626-9.140625v-201.148437c0-5.050782-4.085938-9.144532-9.140626-9.144532-5.054687 0-9.144531 4.09375-9.144531 9.144532v201.148437c0 5.050781 4.089844 9.140625 9.144531 9.140625zm0 0" fill="#000000" data-original="#000000" class=""></path><path d="m155.429688 384.003906c5.054687 0 9.144531-4.089844 9.144531-9.140625v-201.148437c0-5.050782-4.089844-9.144532-9.144531-9.144532-5.050782 0-9.140626 4.09375-9.140626 9.144532v201.148437c0 5.050781 4.089844 9.140625 9.140626 9.140625zm0 0" fill="#000000" data-original="#000000" class=""></path><path d="m100.574219 384.003906c5.054687 0 9.140625-4.089844 9.140625-9.140625v-201.148437c0-5.050782-4.085938-9.144532-9.140625-9.144532-5.054688 0-9.144531 4.09375-9.144531 9.144532v201.148437c0 5.050781 4.089843 9.140625 9.144531 9.140625zm0 0" fill="#000000" data-original="#000000" class=""></path></g></svg></button>
+										</div>
+										<a href="${url}">Xem chi tiết</a>
+									</div>
+								</div>
+							</div>`
+						)
+					}
+				}
+			}
+			view()
+			function removeItemFromLocalStorage(id) {
+				var data = JSON.parse(localStorage.getItem('wishlist'));
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].id == id) {
+					data.splice(i, 1);
+					break;
+					}
+				}
+				localStorage.setItem('wishlist', JSON.stringify(data));
+				}
 		</script>
 	</body>
 <!-- Mirrored from f1genz-furniture-2.myharavan.com/blogs/all by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Feb 2023 17:41:25 GMT -->
