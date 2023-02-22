@@ -201,6 +201,7 @@ Route::get('san-pham/{id}-{slug}',  [App\Http\Controllers\Frontend\HomeControlle
 Route::get('gio-hang',  [App\Http\Controllers\Frontend\HomeController::class, 'showCart'])->name('showCart');
 Route::get('thanh-toan',  [App\Http\Controllers\Frontend\HomeController::class, 'showPayment'])->name('showPayment');
 Route::post('them/{id}',  [App\Http\Controllers\Frontend\HomeController::class, 'addCartAjax'])->name('addcart.ajax');
+Route::post('them',  [App\Http\Controllers\Frontend\HomeController::class, 'addCart'])->name('addCart');
 Route::get('xoa-san-pam/{rowId}',  [App\Http\Controllers\Frontend\HomeController::class, 'deleteCart'])->name('deleteCart');
 Route::post('thanh-toan',  [App\Http\Controllers\Frontend\HomeController::class, 'paymentAjax'])->name('payment.ajax');
 Route::get('tin-tuc',  [App\Http\Controllers\Frontend\HomeController::class, 'blogNew'])->name('blogNew');
@@ -228,3 +229,5 @@ Route::get('chinh-sach/{id}-{slug}',[App\Http\Controllers\Frontend\HomeControlle
 
 
 Route::post('add-to-favorites', [App\Http\Controllers\Frontend\HomeController::class, 'addToFavorites'])->name('product.addToFavorites');
+
+Route::post('dang-ki-coupon', [App\Http\Controllers\Frontend\HomeController::class,'registercoupon'])->name('registercoupon');

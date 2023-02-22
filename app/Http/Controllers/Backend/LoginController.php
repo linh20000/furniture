@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Coupon;
 
 class LoginController extends Controller
 {
@@ -18,7 +20,9 @@ class LoginController extends Controller
 
     // dashboard
     public function showHome() {
-        return view('backend.home.index');
+        $data = Order::orderBy('created_at', "DESC")->take(5)->get();
+        $coupon = Coupon::orderBy('created_at','DESC')->take(5)->get();
+        return view('backend.home.index', compact('data','coupon'));
     }
     
     // login

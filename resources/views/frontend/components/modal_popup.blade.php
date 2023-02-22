@@ -111,7 +111,7 @@
         <div class="section-title-all">
             <span>Liên hệ ngay với chúng tôi:</span>
             <p>Nhận ngay voucher giảm giá lên tới <b style="font-weight:bold;color:#f30;font-size:25px;">49%</b> cho tất cả sản phẩm:
-            <b>HOTLINE: </b> <b style="font-weight:bold;color:#f30;">{{sprintf("(%s) %s-%s", substr($config->hotline, 0, 3), substr($config->hotline, 3, 3),substr($config->hotline, 3, 3),substr($config->hotline, 3, 3))}}</b></p>
+            <b>HOTLINE: </b> <b style="font-weight:bold;color:#f30">{{sprintf("(%s) %s-%s", substr($config->hotline, 0, 3), substr($config->hotline, 3, 3),substr($config->hotline, 6, 4 ),substr($config->hotline, 3, 3))}}</b></p>
         </div>
         
        

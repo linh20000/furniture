@@ -8,15 +8,15 @@
                 <div class="account-page-sidebar">
                     <div class="account-sidebar-header">
                         <div class="account-sidevar-avatar">
-                            <img width="32" height="32" src="https://file.hstatic.net/200000306687/file/user__1__5d4e2be8d65346eb8a73967531f46ba4.png" alt="linh ngô quang">
+                            <img width="32" height="32" src="https://file.hstatic.net/200000306687/file/user__1__5d4e2be8d65346eb8a73967531f46ba4.png" alt="{{$user->name}}">
                         </div>
                         <h3>Hi, <b>{{$user->name}}</b></h3>
                     </div>
                     <div class="account-sidebar-menu">
                         <ul>
                             <li><a href="#" class="active">Thông tin tài khoản</a></li>
-                            <li><a href="/account?view=orders">Lịch sử mua hàng</a></li>
-                            <li><a href="/account/addresses" >Danh sách địa chỉ</a></li>
+                            {{-- <li><a href="/account?view=orders">Lịch sử mua hàng</a></li>
+                            <li><a href="/account/addresses" >Danh sách địa chỉ</a></li> --}}
                             <li><a href="{{route('logout')}}">Đăng xuất</a></li>
                         </ul>
                     </div>

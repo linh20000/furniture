@@ -8,18 +8,32 @@ use App\Models\Order;
 use App\Models\ProductInterior;
 use App\Models\Blog;
 use App\Models\Appointment;
+use App\Models\Config;
 use App\Models\Favorite;
 use App\Models\Policy;
+use App\Models\Coupon;
 use App\Models\Interior;
 use App\Models\MiniCategory;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Artesaos\SEOTools\Facades\SEOTools;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
 class HomeController extends Controller
 {
     public function home()
     {
+        $config = Config::first();
+        SEOTools::setTitle($config->seo_title);
+        SEOTools::setDescription($config->seo_description);
+        SEOTools::opengraph()->setUrl('http://127.0.0.1:8000/');
+        SEOTools::setCanonical('https://codecasts.com.br/lesson');
+        SEOTools::opengraph()->addProperty('type', 'articles');
+        SEOTools::twitter()->setSite($config->seo_title);
+        SEOTools::jsonLd()->addImage($config->logo);
         $product_hot = Product::orderBy('created_at','DESC')->where('status', '=', 1)->where('tags','=', 'hot')->get();
         $product_sale = Product::orderBy('created_at','DESC')->where('status', '=', 1)->where('tags','=', 'sale')->get();
         $product_tables = Product::orderBy('created_at','DESC')->where('status', '=', 1)->where('product_line','=', 'tables')->get();
@@ -34,6 +48,14 @@ class HomeController extends Controller
 
     public function showDetails($id, $slug) {
         $product = Product::find($id);
+        $config = Config::first();
+         SEOTools::setTitle( $product->seo_title);
+        SEOTools::setDescription( $product->seo_description);
+        SEOTools::opengraph()->setUrl('http://127.0.0.1:8000/');
+        SEOTools::setCanonical('https://codecasts.com.br/lesson');
+        SEOTools::opengraph()->addProperty('type', 'articles');
+        SEOTools::twitter()->setSite($product->seo_title);
+        SEOTools::jsonLd()->addImage($product->thumbnail);
         $relation_product = Product::where('tags', '=', $product->tags)->where('product_line', '!=', $product->product_line)->where('status', '=', 1)->take(2)->get();
         $relation = Product::where('tags', '=', $product->tags)->where('product_line', '=', $product->product_line)->where('status', '=', 1)->get();
         $category_parent = MiniCategory::where('id' ,'=' ,$product->category_id)->first();
@@ -62,6 +84,32 @@ class HomeController extends Controller
             'options' => ['thumbnail'=>$request['thumbnail'],
                         'product_code'=>$product->product_code,
                         'old_price'=>(int)($request['old_price']),
+                        'color'=>$request['color'],
+                        'type'=>$request['type'],
+            ]
+            
+        ]);
+        return response()->json(['success'=>'Thêm giỏ hàng thành công','quantity'=>Cart::count(), 'content' => Cart::content() ]);
+    }
+    public function addCart(Request $request) {
+        $product = Product::FindOrFail($request->productId);
+        // $request->validate([
+        //     'color'=>'required',
+        //     'type'=>'required',
+        // ],
+        // [
+        //     'color.required'=>'Chưa chọn màu sắc',
+        //     'type.required'=>'Chưa chọn kiểu loại',
+        // ]);
+        Cart::add([
+            'id' => $product->id,
+            'name'=>$product->name,
+            'price'=>(int)($product->sale_price),
+            'qty'=> 1,
+            'weight' => $product-> status,
+            'options' => ['thumbnail'=>$product->thumbnail,
+                        'product_code'=>$product->product_code,
+                        'old_price'=>(int)($product->old_price),
                         'color'=>$request['color'],
                         'type'=>$request['type'],
             ]
@@ -108,12 +156,28 @@ class HomeController extends Controller
     }
     public function blogDetail($id, $slug) {
         $blog_detail = Blog::find($id);
+        $config = Config::first();
+        SEOTools::setTitle($blog_detail->seo_title);
+        SEOTools::setDescription($blog_detail->seo_description);
+        SEOTools::opengraph()->setUrl('http://127.0.0.1:8000/');
+        SEOTools::setCanonical('https://codecasts.com.br/lesson');
+        SEOTools::opengraph()->addProperty('type', 'articles');
+        SEOTools::twitter()->setSite(  $blog_detail->seo_title);
+        SEOTools::jsonLd()->addImage( $blog_detail->thumbnail) ;
         return view('frontend.blog.detail_blog',compact('blog_detail'));
     }
     public function BlogDetailPolicy($id, $slug) {
 
         $blog_detail = Policy::find($id);
         // dd($blog_detail);
+         $config = Config::first();
+        SEOTools::setTitle($blog_detail->seo_title);
+        SEOTools::setDescription($blog_detail->seo_description  );
+        SEOTools::opengraph()->setUrl('http://127.0.0.1:8000/');
+        SEOTools::setCanonical('https://codecasts.com.br/lesson');
+        SEOTools::opengraph()->addProperty('type', 'articles');
+        SEOTools::twitter()->setSite($blog_detail->seo_title );
+        SEOTools::jsonLd()->addImage($blog_detail->thumbnail );
         return view('frontend.blog.detail_blog',compact('blog_detail'));
 
     } 
@@ -223,10 +287,17 @@ class HomeController extends Controller
         $favorite->user_id = Auth::user()->id;
         $favorite->product_id = $request->productId;
         $product = Product::where('id', '=', $request->productId)->get();
+        // dd($product);
         $count = count($product);
         return response()->json([
             'data' => view('frontend.favorites', compact('product'))->render(),
             'count'=> $count,
         ]);
     }   
+    public function registercoupon(Request $request) {
+                Coupon::create($request->all());
+         return response()->json([
+            'success' => true,
+        ]);
+    }
 }   

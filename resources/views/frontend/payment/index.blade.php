@@ -260,7 +260,7 @@
         let district = $('input[name=district]').val();
         let wards = $('input[name=wards]').val();
         let address = $('input[name=address]').val();
-        let note = $('input[name=note]').val();
+        let note = $('textarea[name=note]').val();
         let product = $('input[name=product]').val();
         let total = $('input[name=total]').val();
         let qty = $('input[name=qty]').val();

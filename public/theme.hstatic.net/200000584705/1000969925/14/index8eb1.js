@@ -3523,7 +3523,7 @@ F1GENZ.Index = {
     }
   },
   home_slider: function () {
-    var domSlider = `<div class="home-slider-main-item"><a href="/collections/all" aria-label="Banner slider 2"><picture><source media="(max-width: 480px)" srcset="//theme.hstatic.net/200000584705/1000969925/14/home_slider_item_image_mob_2_large.png?v=2472"><source media="(max-width: 767px)" srcset="//theme.hstatic.net/200000584705/1000969925/14/home_slider_item_image_mob_2.png?v=2472"><source media="(min-width: 768px)" srcset="//theme.hstatic.net/200000584705/1000969925/14/home_slider_item_image_2.png?v=2472"><img class="w-100" width="1920" height="640" alt="Banner slider 2"/></picture></a></div><div class="home-slider-main-item"><a href="/collections/all" aria-label="Banner slider 3"><picture><source media="(max-width: 480px)" srcset="//theme.hstatic.net/200000584705/1000969925/14/home_slider_item_image_mob_3_large.png?v=2472"><source media="(max-width: 767px)" srcset="//theme.hstatic.net/200000584705/1000969925/14/home_slider_item_image_mob_3.png?v=2472"><source media="(min-width: 768px)" srcset="//theme.hstatic.net/200000584705/1000969925/14/home_slider_item_image_3.png?v=2472"><img class="w-100" width="1920" height="640" alt="Banner slider 3"/></picture></a></div>`;
+    var domSlider = ``;
     if (navigator.userAgent.indexOf("Chrome-Lighthouse") === -1) {
       $(".home-slider .home-slider-main").append(domSlider);
       F1GENZ.Helper.productSlider(

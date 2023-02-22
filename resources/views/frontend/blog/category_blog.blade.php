@@ -9,7 +9,7 @@
                 <li class="hasChild">
                     <a href="" title="{{$item->name}}">{{$item->name}}<span>›</span></a>
                     <ul class="menu2">
-                        @foreach ($item->childs as $item)
+                        @foreach ($item->child as $item)
                             <li class="">
                                 <a href="" title="{{$item->name}}">{{$item->name}}</a>
                             </li>

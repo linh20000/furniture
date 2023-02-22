@@ -10,7 +10,6 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="HandheldFriendly" content="true">
 		<link rel="shortcut icon" href="../../theme.hstatic.net/200000584705/1000969925/14/favicon8eb1.png?v=2483" type="image/png">
-		<title>Tất cả bài viết&ndash; F1GENZ Furniture 2</title>
 		<link rel="canonical" href="all.html">
 		<link rel="alternate" href="all.html" hreflang="vi-vn">	
 		<meta name="keywords" content="F1GENZ Furniture 2">
@@ -25,100 +24,104 @@
 		</style>
 
 
-<link rel="dns-prefetch" href="../index.html">
-<link rel="dns-prefetch" href="http://hstatic.net/">
-<link rel="dns-prefetch" href="http://theme.hstatic.net/">
-<link rel="dns-prefetch" href="http://product.hstatic.net/">
-<link rel="dns-prefetch" href="http://file.hstatic.net/">
-<link rel="dns-prefetch" href="http://www.google-analytics.com/">
-<link rel="dns-prefetch" href="http://www.googletagmanager.com/">
-<link rel="dns-prefetch" href="http://www.google.com/">
-<link rel="dns-prefetch" href="http://fonts.gstatic.com/">
-<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
-<link rel="dns-prefetch" href="http://www.facebook.com/">
-<link rel="dns-prefetch" href="http://connect.facebook.net/">
-<link rel="dns-prefetch" href="http://static.ak.facebook.com/">
-<link rel="dns-prefetch" href="http://static.ak.fbcdn.net/">
-<link rel="dns-prefetch" href="http://s-static.ak.facebook.com/">
+		<link rel="dns-prefetch" href="../index.html">
+		<link rel="dns-prefetch" href="http://hstatic.net/">
+		<link rel="dns-prefetch" href="http://theme.hstatic.net/">
+		<link rel="dns-prefetch" href="http://product.hstatic.net/">
+		<link rel="dns-prefetch" href="http://file.hstatic.net/">
+		<link rel="dns-prefetch" href="http://www.google-analytics.com/">
+		<link rel="dns-prefetch" href="http://www.googletagmanager.com/">
+		<link rel="dns-prefetch" href="http://www.google.com/">
+		<link rel="dns-prefetch" href="http://fonts.gstatic.com/">
+		<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+		<link rel="dns-prefetch" href="http://www.facebook.com/">
+		<link rel="dns-prefetch" href="http://connect.facebook.net/">
+		<link rel="dns-prefetch" href="http://static.ak.facebook.com/">
+		<link rel="dns-prefetch" href="http://static.ak.fbcdn.net/">
+		<link rel="dns-prefetch" href="http://s-static.ak.facebook.com/">
 
-<link rel="preload" href="../../theme.hstatic.net/200000584705/1000969925/14/shop_logo_image_medium8eb1.png?v=2483" as="image"> 
-<link rel="preload" as="style" href="../../theme.hstatic.net/200000584705/1000969925/14/main.scss8eb1.css?v=2483">
+		<link rel="preload" href="../../theme.hstatic.net/200000584705/1000969925/14/shop_logo_image_medium8eb1.png?v=2483" as="image"> 
+		<link rel="preload" as="style" href="../../theme.hstatic.net/200000584705/1000969925/14/main.scss8eb1.css?v=2483">
 
 
-<script type='text/javascript'>
-if(navigator.userAgent.indexOf('Chrome-Lighthouse') === -1){
-if ((typeof Haravan) === 'undefined') {
-  Haravan = {};
-}
-Haravan.culture = 'vi-VN';
-Haravan.shop = 'f1genz-furniture-2.myharavan.com';
-Haravan.theme = {"name":"F1GENZ Luxury Furniture update 13/02/2023","id":1000969925,"role":"main"};
-Haravan.domain = 'f1genz-furniture-2.myharavan.com';
-}
-</script>
-<script>
-if(navigator.userAgent.indexOf('Chrome-Lighthouse') === -1){
-(function() { function asyncLoad() { var urls = ["https://product-reviews-apps.haravan.com/js/productreview/ProductReviews.js"];for (var i = 0; i < urls.length; i++) {var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = urls[i];var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);}}window.attachEvent ? window.attachEvent('onload', asyncLoad) : window.addEventListener('load', asyncLoad, false);})();
-}
-</script>
-<script defer src='../../stats.hstatic.net/beacon.min.js' hrv-beacon-t='200000584705'></script><style>.grecaptcha-badge{visibility:hidden;}</style>
-<script type='text/javascript'>
-window.HaravanAnalytics = window.HaravanAnalytics || {};
-window.HaravanAnalytics.meta = window.HaravanAnalytics.meta || {};
-window.HaravanAnalytics.meta.currency = 'VND';
-var meta = {"page":{"pageType":"blog"}};
-for (var attr in meta) {
-	window.HaravanAnalytics.meta[attr] = meta[attr];
-}
-window.HaravanAnalytics.AutoTrack = true;
-</script>
- 
+		<script type='text/javascript'>
+			if(navigator.userAgent.indexOf('Chrome-Lighthouse') === -1){
+			if ((typeof Haravan) === 'undefined') {
+			Haravan = {};
+			}
+			Haravan.culture = 'vi-VN';
+			Haravan.shop = 'f1genz-furniture-2.myharavan.com';
+			Haravan.theme = {"name":"F1GENZ Luxury Furniture update 13/02/2023","id":1000969925,"role":"main"};
+			Haravan.domain = 'f1genz-furniture-2.myharavan.com';
+			}
+			</script>
+			<script>
+			if(navigator.userAgent.indexOf('Chrome-Lighthouse') === -1){
+			(function() { function asyncLoad() { var urls = ["https://product-reviews-apps.haravan.com/js/productreview/ProductReviews.js"];for (var i = 0; i < urls.length; i++) {var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = urls[i];var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);}}window.attachEvent ? window.attachEvent('onload', asyncLoad) : window.addEventListener('load', asyncLoad, false);})();
+			}
+			</script>
+			<script defer src='../../stats.hstatic.net/beacon.min.js' hrv-beacon-t='200000584705'></script><style>.grecaptcha-badge{visibility:hidden;}</style>
+			<script type='text/javascript'>
+			window.HaravanAnalytics = window.HaravanAnalytics || {};
+			window.HaravanAnalytics.meta = window.HaravanAnalytics.meta || {};
+			window.HaravanAnalytics.meta.currency = 'VND';
+			var meta = {"page":{"pageType":"blog"}};
+			for (var attr in meta) {
+				window.HaravanAnalytics.meta[attr] = meta[attr];
+			}
+			window.HaravanAnalytics.AutoTrack = true;
+		</script>
 		
-<!-- SEO META DESCRIPTION -->
-<meta name="description" content="F1GENZ Furniture 2">
-<!-- END SEO META DESCRIPTION -->
-<!-- SEO PAGI -->
-
-
+				
+		<!-- SEO META DESCRIPTION -->
+		<meta name="description" content="F1GENZ Furniture 2">
+		<!-- END SEO META DESCRIPTION -->
+		<!-- SEO PAGI -->
+		{!! SEO::generate() !!}
+		{!! SEOMeta::generate() !!}
+		{!! OpenGraph::generate() !!}
+		{!! Twitter::generate() !!}
+		{!! JsonLd::generate() !!}
 <!-- END SEO PAGI -->
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tất cả b&#224;i viết">
-<meta property="og:image" content="http://theme.hstatic.net/200000584705/1000969925/14/share_fb_home.png?v=2483">
-<meta property="og:image:secure_url" content="https://theme.hstatic.net/200000584705/1000969925/14/share_fb_home.png?v=2483">
-<meta property="og:url" content="https://f1genz-furniture-2.myharavan.com/blogs/all">
-<meta property="og:site_name" content="F1GENZ Furniture 2">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Tất cả b&#224;i viết">
+		<meta property="og:image" content="http://theme.hstatic.net/200000584705/1000969925/14/share_fb_home.png?v=2483">
+		<meta property="og:image:secure_url" content="https://theme.hstatic.net/200000584705/1000969925/14/share_fb_home.png?v=2483">
+		<meta property="og:url" content="https://f1genz-furniture-2.myharavan.com/blogs/all">
+		<meta property="og:site_name" content="F1GENZ Furniture 2">
 
 
-<!-- Font -->
-    <meta name='csrf-token' content="{{csrf_token()}}">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" as="style">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
-<!-- Plugin -->
-<link rel="preload" href="../../theme.hstatic.net/200000584705/1000969925/14/plugin8eb1.css?v=2483" as="style">
-<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/plugin8eb1.css?v=2483"/>
-<!-- Fancybox -->
-<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/fancy8eb1.css?v=2483" media="print" onload="this.media='all'"/>
-<noscript><link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/fancy8eb1.css?v=2483" media="all"/></noscript>
+		<!-- Font -->
+			<meta name='csrf-token' content="{{csrf_token()}}">
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" as="style">
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+		<!-- Plugin -->
+		<link rel="preload" href="../../theme.hstatic.net/200000584705/1000969925/14/plugin8eb1.css?v=2483" as="style">
+		<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/plugin8eb1.css?v=2483"/>
+		<!-- Fancybox -->
+		<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/fancy8eb1.css?v=2483" media="print" onload="this.media='all'"/>
+		<noscript><link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/fancy8eb1.css?v=2483" media="all"/></noscript>
 
-<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/main.scss8eb1.css?v=2483">
+		<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/main.scss8eb1.css?v=2483">
 
-<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/blog.scss8eb1.css?v=2483">
-<link rel="stylesheet" href="../theme.hstatic.net/200000584705/1000969925/14/index.scss8eb1.css?v=2483">
-<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/product.scss8eb1.css?v=2483">
-<style>.main-collection-breadcrumb *, .main-collection-breadcrumb *:after, .main-collection-breadcrumb *:before{ color: #333333 !important; }</style>
-<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/collection.scss8eb1.css?v=2483">
-<link rel="stylesheet" href="../../../theme.hstatic.net/200000584705/1000969925/14/article.scss8eb1.css?v=2483"> 
-<link rel="stylesheet" href="//theme.hstatic.net/200000584705/1000969925/14/cart.scss.css?v=2483">
-<link rel="stylesheet" href="//theme.hstatic.net/200000584705/1000969925/14/page.scss.css?v=2483">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="//theme.hstatic.net/200000584705/1000969925/14/customer.scss.css?v=2483">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<link rel="stylesheet" href="{{asset('default.css')}}">
-<link rel="stylesheet" href="{{asset('cart.css')}}">
-<style>@media(max-width: 991px){ footer.footer { padding-bottom: 50px; } }</style>	</head> 
+		<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/blog.scss8eb1.css?v=2483">
+		<link rel="stylesheet" href="../theme.hstatic.net/200000584705/1000969925/14/index.scss8eb1.css?v=2483">
+		<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/product.scss8eb1.css?v=2483">
+		<style>.main-collection-breadcrumb *, .main-collection-breadcrumb *:after, .main-collection-breadcrumb *:before{ color: #333333 !important; }</style>
+		<link rel="stylesheet" href="../../theme.hstatic.net/200000584705/1000969925/14/collection.scss8eb1.css?v=2483">
+		<link rel="stylesheet" href="../../../theme.hstatic.net/200000584705/1000969925/14/article.scss8eb1.css?v=2483"> 
+		<link rel="stylesheet" href="//theme.hstatic.net/200000584705/1000969925/14/cart.scss.css?v=2483">
+		<link rel="stylesheet" href="//theme.hstatic.net/200000584705/1000969925/14/page.scss.css?v=2483">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="//theme.hstatic.net/200000584705/1000969925/14/customer.scss.css?v=2483">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+		<link rel="stylesheet" href="{{asset('default.css')}}">
+		<link rel="stylesheet" href="{{asset('cart.css')}}">
+		<style>@media(max-width: 991px){ footer.footer { padding-bottom: 50px; } }</style>	
+</head> 
 	<body class="preload">
 		@include('header')
         @yield('content')
@@ -184,12 +187,41 @@ window.HaravanAnalytics.AutoTrack = true;
 						productId: params,
 					},
 					success: function(response) {
+						// console.log(response.count);
 						toastr.success('Thêm sản phẩm yêu thích thành công' )
                         $('.tacg').html(response.data)
 						$('.wislet').text(response.count)
 					}
 				})
             }
+			function addCart(params) {
+				$.ajax({
+					type: 'POST',
+					url: "{{ route('addCart') }}",
+					data: {
+						_token: $('meta[name="csrf-token"]').attr('content'),
+						productId: params,
+					},
+					success: function(response) {
+						toastr.success('Thêm sản phẩm yêu thích thành công' )
+                        $('.tacg').html(response.data)
+						$('.wislet').text(response.count)
+					}
+				})
+			}
+			function registerCoupon() {
+				$.ajax({
+					type: 'POST',
+					url: "{{route('registercoupon')}}",
+					data: {
+						_token: $('meta[name="csrf-token"]').attr('content'),
+						email: $('input[name=email]').val(),
+					},
+					success: function(response) {
+						toastr.success('Chúc mừng bạn đã đăng kí thành công' )
+					}
+				})
+			}
 		</script>
 	</body>
 <!-- Mirrored from f1genz-furniture-2.myharavan.com/blogs/all by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Feb 2023 17:41:25 GMT -->

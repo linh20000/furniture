@@ -3,7 +3,6 @@
 @section('content')
 <section class=" app-content content">
     <!-- Default box -->
-    
     <div class="container-fluid">
         
         <div class="row mb-2">

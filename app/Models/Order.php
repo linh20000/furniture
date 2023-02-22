@@ -18,6 +18,7 @@ class Order extends Model
         'product',
         'total',
         'qty',
+        'note',
         'status',
         'shipping',
     ];

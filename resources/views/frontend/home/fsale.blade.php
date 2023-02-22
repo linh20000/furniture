@@ -6,31 +6,31 @@
                     <img class="lazyload" data-src="//theme.hstatic.net/200000036162/1000967879/14/fsale_countdown_label.jpg?v=75" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAQAAABTNcdGAAAAC0lEQVR42mNkgAIAABIAAmXG3J8AAAAASUVORK5CYII=" alt="Flash Sale Icon" width="170" height="33">
                     <label>Bắt đầu sau</label>
                     <div class="home-fsale-head-item-countdown" data-start="22/11/2023 00:00:00" data-end="22/11/2023 07:00:00"></div>
-                    <a class="home-fsale-cta d-none d-sm-block" href="collections/ban-an.html" aria-label="Bàn ăn">Xem tất cả</a>
+                    <a class="home-fsale-cta d-none d-sm-block" href="{{route('collectionAll')}}" aria-label="Bàn ăn">Xem tất cả</a>
                 </div>
                 <div class="home-fsale-head-item">
                     <img class="lazyload" data-src="//theme.hstatic.net/200000036162/1000967879/14/fsale_countdown_label.jpg?v=75" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAQAAABTNcdGAAAAC0lEQVR42mNkgAIAABIAAmXG3J8AAAAASUVORK5CYII=" alt="Flash Sale Icon" width="170" height="33">
                     <label>Bắt đầu sau</label>
                     <div class="home-fsale-head-item-countdown" data-start="22/11/2023 07:00:00" data-end="22/11/2023 12:00:00"></div>
-                    <a class="home-fsale-cta d-none d-sm-block" href="collections/ghe-an.html" aria-label="Ghế ăn">Xem tất cả</a>
+                    <a class="home-fsale-cta d-none d-sm-block" href="{{route('collectionAll')}}" aria-label="Ghế ăn">Xem tất cả</a>
                 </div>
                 <div class="home-fsale-head-item">
                     <img class="lazyload" data-src="//theme.hstatic.net/200000036162/1000967879/14/fsale_countdown_label.jpg?v=75" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAQAAABTNcdGAAAAC0lEQVR42mNkgAIAABIAAmXG3J8AAAAASUVORK5CYII=" alt="Flash Sale Icon" width="170" height="33">
                     <label>Bắt đầu sau</label>
                     <div class="home-fsale-head-item-countdown" data-start="22/11/2023 12:00:00" data-end="22/11/2023 16:00:00"></div>
-                    <a class="home-fsale-cta d-none d-sm-block" href="collections/tu-quan-ao.html" aria-label="Tủ quần áo">Xem tất cả</a>
+                    <a class="home-fsale-cta d-none d-sm-block" href="{{route('collectionAll')}}" aria-label="Tủ quần áo">Xem tất cả</a>
                 </div>
                 <div class="home-fsale-head-item">
                     <img class="lazyload" data-src="//theme.hstatic.net/200000036162/1000967879/14/fsale_countdown_label.jpg?v=75" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAQAAABTNcdGAAAAC0lEQVR42mNkgAIAABIAAmXG3J8AAAAASUVORK5CYII=" alt="Flash Sale Icon" width="170" height="33">
                     <label>Bắt đầu sau</label>
                     <div class="home-fsale-head-item-countdown" data-start="22/11/2023 16:00:00" data-end="22/11/2023 20:00:00"></div>
-                    <a class="home-fsale-cta d-none d-sm-block" href="collections/den-de-ban.html" aria-label="Đèn để bàn">Xem tất cả</a>
+                    <a class="home-fsale-cta d-none d-sm-block" href="{{route('collectionAll')}}" aria-label="Đèn để bàn">Xem tất cả</a>
                 </div>
                 <div class="home-fsale-head-item">
                     <img class="lazyload" data-src="//theme.hstatic.net/200000036162/1000967879/14/fsale_countdown_label.jpg?v=75" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAQAAABTNcdGAAAAC0lEQVR42mNkgAIAABIAAmXG3J8AAAAASUVORK5CYII=" alt="Flash Sale Icon" width="170" height="33">
                     <label>Bắt đầu sau</label>
                     <div class="home-fsale-head-item-countdown" data-start="22/11/2023 20:00:00" data-end="22/11/2023 23:59:00"></div>
-                    <a class="home-fsale-cta d-none d-sm-block" href="collections/ke-treo-tuong.html" aria-label="Kệ treo tường">Xem tất cả</a>
+                    <a class="home-fsale-cta d-none d-sm-block" href="{{route('collectionAll')}}" aria-label="Kệ treo tường">Xem tất cả</a>
                 </div>
             </div>
             <div class="home-fsale-banner has-spin">
